@@ -15,11 +15,11 @@
             <span class="topnav-options-wrapper">
                 <a class="topnav-option" href="Index.html">Home</a>
                 <a class="topnav-option" href="#aboutModal" id="aboutBtn">About</a>
+                <a class="topnav-option" href="https://github.com/Lankow" " target="_blank">GitHub</a>
                 <a class="topnav-option" href="#editModal" id="editBtn">Edit Summoners</a>
-                <a class="topnav-option" href="#about">Roll Team</a>
             </span>
         </div>
-        <div id="roll-team-btn">ROLL TEAM!</div>
+        <div id="roll-team-btn" class="fade-in">ROLL TEAM!</div>
         <div class="content" id="board">
             <div class="pick">
                 <p class="summ-name">Summoner I</p>
@@ -29,8 +29,12 @@
                     <div class="reroll"><a href="#"><img class="reroll-icon" src="img/d10-icon-16.png"></a></div>
                     </div>
                 </div>
+                <div class="champ-thumb-wrapper">
+                    <img  class= "champ-pic"src="http://ddragon.leagueoflegends.com/cdn/10.10.3208608/img/champion/Ryze.png" alt="">
+                </div>
                 <p class="champ-name">Ryze</p>
-                <p class="champ-role">Mage</p>
+                <button class="reroll-thumb-btn">ReRoll</button>
+
             </div>
             <div class="pick">
                 <p class="summ-name">Summoner II</p>
@@ -40,8 +44,11 @@
                     <div class="reroll"><a href="#"><img class="reroll-icon" src="img/d10-icon-16.png"></a></div>
                     </div>
                 </div>
+                <div class="champ-thumb-wrapper">
+                    <img  class= "champ-pic"src="http://ddragon.leagueoflegends.com/cdn/10.10.3208608/img/champion/Aatrox.png" alt="">
+                </div>
                 <p class="champ-name">Aatrox</p>
-                <p class="champ-role">Warrior</p>
+                <button class="reroll-thumb-btn">ReRoll</button>
             </div>
             <div class="pick">
                 <p class="summ-name">Summoner III</p>
@@ -51,8 +58,11 @@
                     <div class="reroll"><a href="#"><img class="reroll-icon" src="img/d10-icon-16.png"></a></div>
                     </div>
                 </div>
+                <div class="champ-thumb-wrapper">
+                    <img  class= "champ-pic"src="http://ddragon.leagueoflegends.com/cdn/10.10.3208608/img/champion/Thresh.png" alt="">
+                </div>
                 <p class="champ-name">Thresh</p>
-                <p class="champ-role">Support</p>
+                <button class="reroll-thumb-btn">ReRoll</button>
             </div>
             <div class="pick">
                 <p class="summ-name">Summoner IV</p>
@@ -62,8 +72,11 @@
                     <div class="reroll"><a href="#"><img class="reroll-icon" src="img/d10-icon-16.png"></a></div>
                     </div>
                 </div>
+                <div class="champ-thumb-wrapper">
+                    <img  class= "champ-pic"src="http://ddragon.leagueoflegends.com/cdn/10.10.3208608/img/champion/Xayah.png" alt="">
+                </div>
                 <p class="champ-name">Xayah</p>
-                <p class="champ-role">Marksman</p>
+                <button class="reroll-thumb-btn">ReRoll</button>
             </div>
             <div class="pick">
                 <p class="summ-name">Summoner V</p>
@@ -73,17 +86,20 @@
                     <div class="reroll"><a href="#"><img class="reroll-icon" src="img/d10-icon-16.png"></a></div>
                     </div>
                 </div>
+                <div class="champ-thumb-wrapper">
+                    <img  class= "champ-pic"src="http://ddragon.leagueoflegends.com/cdn/10.10.3208608/img/champion/Warwick.png" alt="">
+                </div>
                 <p class="champ-name">Warwick</p>
-                <p class="champ-role">Fighter</p>
+                <button class="reroll-thumb-btn">ReRoll</button>
             </div>
         
         </div>
         <!-- The Modal -->
-    <div id="aboutModal" class="modal">
+    <div id="aboutModal" class="modal fade-in">
         <!-- Modal content -->
         <div class="modal-content">
         <div class="close">x</div>
-        <h1>About</h1>
+        <span id="about-wrapper"><h1>About</h1>
         <p>League roller - window application created using c++ builder. 
             Application rolls random team for League of Legends players. 
             Players can edit summoners names, roll whole team or 5 separate picks. 
@@ -92,7 +108,15 @@
             I treat computers and coding rather like an entertaintment and limitless opportunity to develop myself. 
             I'm open minded, social person, looking for a chance to start working as junior software developer to learn,
             gather new experiences and face variety od challenges.</p>
-            <p><a href="https://github.com/Lankow" " target="_blank"> Check my GitHub!</a></p>
+        </span>
+        <span id="edit-wrapper"><h1>Edit Summoners names</h1>
+            <input type="text" name="" id="" placeholder="Enter name for a Summoner I...">
+            <input type="text" name="" id="" placeholder="Enter name for a Summoner II...">
+            <input type="text" name="" id="" placeholder="Enter name for a Summoner III...">
+            <input type="text" name="" id="" placeholder="Enter name for a Summoner IV...">
+            <input type="text" name="" id="" placeholder="Enter name for a Summoner V...">
+            <button>Submit Changes</button>
+        </span>
     </div>
   
     </div>
@@ -100,16 +124,27 @@
     <script>
                         // Get the modal
         var aboutModal = document.getElementById('aboutModal');
+        var editWrapper = document.getElementById('edit-wrapper');
+        var aboutWrapper = document.getElementById('about-wrapper');
         
         // Get the button that opens the modal
         var aboutBtn = document.getElementById("aboutBtn");
-
+        var editBtn = document.getElementById('editBtn')
+        
         // Get the <span> element that closes the modal
         var aboutSpan = document.getElementsByClassName("close")[0];
 
         // When the user clicks on the button, open the modal
         aboutBtn.onclick = function() {
             aboutModal.style.display = "block";
+            aboutWrapper.style.display = "block";
+            editWrapper.style.display = "none";
+        }
+        
+        editBtn.onclick = function() {
+            aboutModal.style.display = "block";
+            editWrapper.style.display = "block";
+            aboutWrapper.style.display = "none";
         }
 
         // When the user clicks on <span> (x), close the modal
@@ -128,8 +163,9 @@
         var content = document.getElementById("board");
         
         teamBtn.onclick = function() {
-            content.style.display = "grid";
             teamBtn.style.display = "none";
+            content.classList.add('fade-in');
+            content.style.display = "grid";
         }
         
     </script>

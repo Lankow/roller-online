@@ -11,69 +11,81 @@ body{
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
+  overflow-x: hidden;
 }
 /* Add a black background color to the top navigation */
 .topnav {
+  width:100vw;
+  height:8vh;
     background-color: #232323;
     overflow: hidden;
   }
+  
+  .topnav-option{
+  
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 2.5vh 1vw;
+    text-decoration: none;
+    font-size: 3vh
+  }
+  
   .logo{
     float:left;
     color: #f2f2f2;
     text-align: center;
-    padding: 20px 16px;
+    padding: 2.5vh 1vw;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 3vh
   }
+  
   #roll-team-btn{
-    width:80%;
-    margin:15% auto;
-    font-size:10rem;
+    transition: .5s ease;
+    margin:25vh auto;
+    font-size:calc(10px + 12vw);  
     text-align: center;
     color:#f2f2f2;
-    text-shadow: #b39556 1px 0 10px; 
+    
     cursor:pointer;
   }
+  
   #roll-team-btn:hover{
     color:#b39556;
     text-shadow: none;
-    
   }
+  
   .logo-img{
     float:left;
-    height:50px;
+    height:4vh;
     width: auto;
-    padding:5px;
-    margin-left:1.5rem;
+    padding:1vw 1vh;
+    margin-left:1vw;
   }
   /* Style the links inside the navigation bar */
-  .topnav-option{
-    float: right;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 22px 16px;
-    text-decoration: none;
-    font-size: 20px;
-  }
+  
   
   /* Change the color of links on hover */
   .topnav a:hover {
+    transition: .5s ease;
     background-color: #ddd;
     color: black;
   }
   
   .content{
     display:none;
-    grid-template-columns: auto auto auto auto auto;
-    grid-gap:30px;
+    grid-template-columns: repeat(auto-fill, minmax(15vw, 1fr));
+    grid-gap:2rem;
     padding:30px;
+    
   }
   
   .pick{
+    grid-area: 'pick';
     background-color:rgba(30, 30, 30, 0.8);
     text-align: center;
     height:80vh;
-    font-size:30px;
+    font-size:4vh;
     color:white;
     border-style: double;
     border-width: 5px;
@@ -81,24 +93,16 @@ body{
   }
   
   .pick p{
-    margin:5px;
+    margin: 0.5vh 0.5vw ;
   }
   
-  .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    color: white;
-    text-align: center;
-    padding:5px;
-  }
   
   .champ-pic{
+    height:50vh;
     border-style:double;
     border-width: 5px;
     border-color:black;
-    margin:10px 0px;
+    margin:2vw 0;
     opacity: 1;
     transition: .5s ease;
     backface-visibility: hidden;
@@ -106,7 +110,7 @@ body{
   
   .summ-name{
     padding-top:1rem;
-    font-size:34px;
+    font-size:4vh;
   }
   
   .champ-pic-wrapper{
@@ -132,14 +136,20 @@ body{
   }
   
   .reroll {
-    color: white;
-    font-size: 30px;
-    padding: 16px 32px;
+    transition: .5s ease;
+    padding: 1rem 3rem;
+  }
+  
+  .reroll:hover{
+    filter: invert(53%) sepia(55%) saturate(357%) hue-rotate(3deg) brightness(103%) contrast(83%);
+  }
+  
+  .reroll:active{
+    filter: invert(53%) sepia(55%) saturate(357%) hue-rotate(3deg) brightness(120%) contrast(100%);
   }
   
   .reroll-icon{
-    width:200px;
-    height:200px;
+    width:10vw;
   }
   
   /* The Modal (background) */
@@ -156,22 +166,10 @@ body{
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-.modal a{
-  color:white;
-  text-decoration: none;
-  font-size: 1.5rem;
-}
-.modal a:hover{
-  color:#b39556;
-}
-.modal a:active{
-  color:#ddbc74;
-}
-
 /* Modal Content/Box */
 .modal-content {
   background-color:rgb(30, 30, 30);
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 20vh auto; /* 15% from the top and centered */
   color: #aaa;
   padding: 20px;
   border: 5px double #888;
@@ -180,20 +178,33 @@ body{
 }
 
 .modal-content h1{
-  font-size:2rem;
-  padding:1rem 0;
+  font-size:4vh;
+  padding:1vh 0;
 }
 
 .modal-content p{
-  font-size:1rem;
-  margin-bottom: 1rem;
+  font-size:2vh;
+  margin-bottom: 2vh;
+}
+
+.modal-content input,button{
+  font-family: "Friz";
+  width:90%;
+  font-size: 2vh;
+  margin-bottom:2vh;
+  padding:1vh 5%;
+}
+.modal-content button{
+  width:100%;
+  color:white;
+  background-color: #b39556;
 }
 
 /* The Close Button */
 .close {
   color: #aaa;
   float: right;
-  font-size: 28px;
+  font-size: 4vh;
   font-weight: bold;
 }
 
@@ -202,4 +213,59 @@ body{
   color: rgb(255, 255, 255);
   text-decoration: none;
   cursor: pointer;
+}
+
+.fade-in {
+  animation: fadeIn ease 1s;
+  -webkit-animation: fadeIn ease 1s;
+  -moz-animation: fadeIn ease 1s;
+  -o-animation: fadeIn ease 1s;
+  -ms-animation: fadeIn ease 1s;
+}
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+.champ-thumb-wrapper,.reroll-thumb-btn{
+  display: none;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+ .modal-content{
+   width:85%;
+ }
+ 
+ .champ-thumb-wrapper, .reroll-thumb-btn{
+   display: block;
+   
+ }
+ 
+ .reroll-thumb-btn{
+    margin: 2vh auto;
+    width:90%;
+    font-size: 4vh;
+    color:white;
+    background-color: #b39556;
+    text-shadow: #1b1b1b 1px 0 10px;
+    border:double 5px #1b1b1b; 
+ }
+ 
+ .champ-pic-wrapper{
+   display: none;
+ }
+ 
+ .content{
+  display:none;
+  grid-template-columns: 80vw;
+  grid-gap:2vh;
+  padding:5vh 2vw;
+}
+
+.pick{
+  margin:0 auto;
+}
+
 }
