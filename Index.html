@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>League Roller</title>
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/roller.css">
+        
+    </head>
+    <body>
+        <div class="topnav">
+            <a href="Index.html"><img class="logo-img" src="img/pngfuel.com.png">
+            <div class="logo">LEAGUE ROLLER</div></a>
+            <span class="topnav-options-wrapper">
+                <a class="topnav-option" href="Index.html">Home</a>
+                <a class="topnav-option" href="#aboutModal" id="aboutBtn">About</a>
+                <a class="topnav-option" href="#editModal" id="editBtn">Edit Summoners</a>
+                <a class="topnav-option" href="#about">Roll Team</a>
+            </span>
+        </div>
+        <div id="roll-team-btn">ROLL TEAM!</div>
+        <div class="content" id="board">
+            <div class="pick">
+                <p class="summ-name">Summoner I</p>
+                <div class="champ-pic-wrapper">
+                    <img  class= "champ-pic"src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Ryze_0.jpg" alt="">
+                    <div class="middle">
+                    <div class="reroll"><a href="#"><img class="reroll-icon" src="img/d10-icon-16.png"></a></div>
+                    </div>
+                </div>
+                <p class="champ-name">Ryze</p>
+                <p class="champ-role">Mage</p>
+            </div>
+            <div class="pick">
+                <p class="summ-name">Summoner II</p>
+                <div class="champ-pic-wrapper">
+                    <img  class= "champ-pic"src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Aatrox_0.jpg" alt="">
+                    <div class="middle">
+                    <div class="reroll"><a href="#"><img class="reroll-icon" src="img/d10-icon-16.png"></a></div>
+                    </div>
+                </div>
+                <p class="champ-name">Aatrox</p>
+                <p class="champ-role">Warrior</p>
+            </div>
+            <div class="pick">
+                <p class="summ-name">Summoner III</p>
+                <div class="champ-pic-wrapper">
+                    <img  class= "champ-pic"src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Thresh_0.jpg" alt="">
+                    <div class="middle">
+                    <div class="reroll"><a href="#"><img class="reroll-icon" src="img/d10-icon-16.png"></a></div>
+                    </div>
+                </div>
+                <p class="champ-name">Thresh</p>
+                <p class="champ-role">Support</p>
+            </div>
+            <div class="pick">
+                <p class="summ-name">Summoner IV</p>
+                <div class="champ-pic-wrapper">
+                    <img  class= "champ-pic"src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Xayah_0.jpg" alt="">
+                    <div class="middle">
+                    <div class="reroll"><a href="#"><img class="reroll-icon" src="img/d10-icon-16.png"></a></div>
+                    </div>
+                </div>
+                <p class="champ-name">Xayah</p>
+                <p class="champ-role">Marksman</p>
+            </div>
+            <div class="pick">
+                <p class="summ-name">Summoner V</p>
+                <div class="champ-pic-wrapper">
+                    <img  class= "champ-pic"src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Warwick_0.jpg" alt="">
+                    <div class="middle">
+                    <div class="reroll"><a href="#"><img class="reroll-icon" src="img/d10-icon-16.png"></a></div>
+                    </div>
+                </div>
+                <p class="champ-name">Warwick</p>
+                <p class="champ-role">Fighter</p>
+            </div>
+        
+        </div>
+        <!-- The Modal -->
+    <div id="aboutModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+        <div class="close">x</div>
+        <h1>About</h1>
+        <p>League roller - window application created using c++ builder. 
+            Application rolls random team for League of Legends players. 
+            Players can edit summoners names, roll whole team or 5 separate picks. 
+            Pick is always unique.</p>
+        <p>Student and Architect from Szczecin fascinated about any kind of technology and willing to learn. 
+            I treat computers and coding rather like an entertaintment and limitless opportunity to develop myself. 
+            I'm open minded, social person, looking for a chance to start working as junior software developer to learn,
+            gather new experiences and face variety od challenges.</p>
+            <p><a href="https://github.com/Lankow" " target="_blank"> Check my GitHub!</a></p>
+    </div>
+  
+    </div>
+    </body>
+    <script>
+                        // Get the modal
+        var aboutModal = document.getElementById('aboutModal');
+        
+        // Get the button that opens the modal
+        var aboutBtn = document.getElementById("aboutBtn");
+
+        // Get the <span> element that closes the modal
+        var aboutSpan = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on the button, open the modal
+        aboutBtn.onclick = function() {
+            aboutModal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        aboutSpan.onclick = function() {
+            aboutModal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == aboutModal) {
+                aboutModal.style.display = "none";
+            }
+        }
+        
+        var teamBtn = document.getElementById("roll-team-btn");
+        var content = document.getElementById("board");
+        
+        teamBtn.onclick = function() {
+            content.style.display = "grid";
+            teamBtn.style.display = "none";
+        }
+        
+    </script>
+    <script>
+        // Download current LoL version
+        var version = 'https://ddragon.leagueoflegends.com/realms/eune.json';
+        // Using current version generate link for champion data JSON
+        var champions = 'http://ddragon.leagueoflegends.com/cdn/'+ version +'/data/en_US/champion.json';
+    
+        
+
+    </script>
+    
+    <script language="javascript">
+        function changeImage() {
+    
+            if (document.getElementById("imgClickAndChange").src == "http://www.userinterfaceicons.com/80x80/minimize.png") 
+            {
+                document.getElementById("imgClickAndChange").src = "http://www.userinterfaceicons.com/80x80/maximize.png";
+            }
+            else 
+            {
+                document.getElementById("imgClickAndChange").src = "http://www.userinterfaceicons.com/80x80/minimize.png";
+            }
+        }
+    </script>
+</html>

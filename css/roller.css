@@ -1,0 +1,205 @@
+@import url('reset.css');
+
+@font-face{
+  font-family: "Friz";
+  src: url("../font/Friz Quadrata Regular.ttf") format("truetype");
+}
+body{
+  font-family: "Friz";
+  background-image: url("../img/bg.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color: #232323;
+    overflow: hidden;
+  }
+  .logo{
+    float:left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 20px 16px;
+    text-decoration: none;
+    font-size: 24px;
+  }
+  #roll-team-btn{
+    width:80%;
+    margin:15% auto;
+    font-size:10rem;
+    text-align: center;
+    color:#f2f2f2;
+    text-shadow: #b39556 1px 0 10px; 
+    cursor:pointer;
+  }
+  #roll-team-btn:hover{
+    color:#b39556;
+    text-shadow: none;
+    
+  }
+  .logo-img{
+    float:left;
+    height:50px;
+    width: auto;
+    padding:5px;
+    margin-left:1.5rem;
+  }
+  /* Style the links inside the navigation bar */
+  .topnav-option{
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 22px 16px;
+    text-decoration: none;
+    font-size: 20px;
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .content{
+    display:none;
+    grid-template-columns: auto auto auto auto auto;
+    grid-gap:30px;
+    padding:30px;
+  }
+  
+  .pick{
+    background-color:rgba(30, 30, 30, 0.8);
+    text-align: center;
+    height:80vh;
+    font-size:30px;
+    color:white;
+    border-style: double;
+    border-width: 5px;
+    border-color:rgba(17, 17, 17, 0.9);
+  }
+  
+  .pick p{
+    margin:5px;
+  }
+  
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding:5px;
+  }
+  
+  .champ-pic{
+    border-style:double;
+    border-width: 5px;
+    border-color:black;
+    margin:10px 0px;
+    opacity: 1;
+    transition: .5s ease;
+    backface-visibility: hidden;
+  }
+  
+  .summ-name{
+    padding-top:1rem;
+    font-size:34px;
+  }
+  
+  .champ-pic-wrapper{
+    position: relative;
+  }
+  
+  .middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%)
+  }
+  
+  .champ-pic-wrapper:hover .champ-pic {
+    opacity: 0.3;
+  }
+  
+  .champ-pic-wrapper:hover .middle {
+    opacity: 1;
+  }
+  
+  .reroll {
+    color: white;
+    font-size: 30px;
+    padding: 16px 32px;
+  }
+  
+  .reroll-icon{
+    width:200px;
+    height:200px;
+  }
+  
+  /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal a{
+  color:white;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+.modal a:hover{
+  color:#b39556;
+}
+.modal a:active{
+  color:#ddbc74;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color:rgb(30, 30, 30);
+  margin: 15% auto; /* 15% from the top and centered */
+  color: #aaa;
+  padding: 20px;
+  border: 5px double #888;
+  width:30%; /* Could be more or less, depending on screen size */
+  text-align: justify;
+}
+
+.modal-content h1{
+  font-size:2rem;
+  padding:1rem 0;
+}
+
+.modal-content p{
+  font-size:1rem;
+  margin-bottom: 1rem;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  cursor: pointer;
+}
