@@ -2,11 +2,12 @@
             constructor(name,thumb) {
                 this.name = name;
                 this.thumb = thumb;
+                //thumb has '.png' format in its string picture on the other hand needs "_0.jpg"
                 this.picture = thumb.substring(0, thumb.length-4)+"_0.jpg";
             }
         }
         
-        var aboutModal = document.getElementById('aboutModal');
+        var modal = document.getElementById('modal');
         var editWrapper = document.getElementById('edit-wrapper');
         var aboutWrapper = document.getElementById('about-wrapper');
         
@@ -17,24 +18,24 @@
         var aboutSpan = document.getElementsByClassName("close")[0];
 
         aboutBtn.onclick = function() {
-            aboutModal.style.display = "block";
+            modal.style.display = "block";
             aboutWrapper.style.display = "block";
             editWrapper.style.display = "none";
         }
         
         editBtn.onclick = function() {
-            aboutModal.style.display = "block";
+            modal
             editWrapper.style.display = "block";
             aboutWrapper.style.display = "none";
         }
 
         aboutSpan.onclick = function() {
-            aboutModal.style.display = "none";
+            modal.style.display = "none";
         }
         
         window.onclick = function(event) {
-            if (event.target == aboutModal) {
-                aboutModal.style.display = "none";
+            if (event.target == modal) {
+                modal.style.display = "none";
             }
         }
         
@@ -56,25 +57,23 @@
                     summs[i].innerHTML = editSumms[i].value;
                 }
             }
-            aboutModal.style.display = "none";
+            modal.style.display = "none";
         }
         
-      
-       
-        // Download current LoL version
+        // App needs to download info about latest LoL version and then download latest champion info json
         var versionUrl = 'https://ddragon.leagueoflegends.com/realms/eune.json';
-        // Using current version generate link for champion data JSON
+        var championsArray = new Array();
         var championsUrl;
         var version;
         var championsData;
-        var championsArray = new Array();
-        var keys
+        var keys;
         
         $.getJSON(versionUrl, function(data){
                 version = data.n.item.substring(0, data.n.item.length-4);
                 championsUrl = 'http://ddragon.leagueoflegends.com/cdn/'+ version +'/data/en_US/champion.json';
                 $.getJSON(championsUrl, function(data){
                 championsData = data.data;
+                //json obtained from riot uses champion names as keys
                 keys = Object.keys(championsData);
             })
         })
@@ -89,7 +88,8 @@
                     }
                 }
             }
-        
+            
+             //On making a first pick app checks if array is empty in order to convert Json champion info to champion class objects
             function makeAPick(number){
                 if(championsArray.length==0) loadChamps();
                 var pick = document.getElementById("champ"+number);
@@ -101,6 +101,7 @@
                 pickThumb.src = "http://ddragon.leagueoflegends.com/cdn/10.10.3208608/img/champion/" + randChamp.thumb;
             }
             
+            //Function checks if currently randomized champion is unique - if not it recurently searches for another one
             function rollChamp(number){
             var randChamp = championsArray[Math.floor(Math.random()*championsArray.length)];
             for(i=1;i<6;i++){

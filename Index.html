@@ -8,6 +8,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
+        <!-- topnav -->
         <div class="topnav">
             <a href="Index.html"><img class="logo-img" src="img/pngfuel.com.png">
             <div class="logo">LEAGUE ROLLER</div></a>
@@ -18,7 +19,9 @@
                 <a class="topnav-option" href="#editModal" id="editBtn">Edit Names</a>
             </span>
         </div>
+        <!-- roll team button -->
         <div id="roll-team-btn" class="fade-in">ROLL TEAM!</div>
+        <!-- board with 5 picks -->
         <div class="content" id="board">
             <div class="pick">
                 <p class="summ-name">Summoner I</p>
@@ -93,17 +96,17 @@
             </div>
         
         </div>
-        <!-- The Modal -->
-    <div id="aboutModal" class="modal fade-in">
-        <!-- Modal content -->
+        <!-- modal -->
+    <div id="modal" class="modal fade-in">
         <div class="modal-content">
         <div class="close">x</div>
         <span id="about-wrapper"><h1>About</h1>
-        <p>League roller - window application created using c++ builder. 
+        <p>League roller - was initially a window application created using c++ builder.
+            Now It's also available as a WebApplication.  
             Application rolls random team for League of Legends players. 
-            Players can edit summoners names, roll whole team or 5 separate picks. 
+            Players can edit their summoners names and roll pick for themselves. 
             Pick is always unique.</p>
-        <p>Student and Architect from Szczecin fascinated about any kind of technology and willing to learn. 
+        <p>App was created by Maciej Lankow - Student and Architect from Szczecin fascinated about any kind of technology and willing to learn. 
             I treat computers and coding rather like an entertaintment and limitless opportunity to develop myself. 
             I'm open minded, social person, looking for a chance to start working as junior software developer to learn,
             gather new experiences and face variety od challenges.</p>
@@ -117,10 +120,9 @@
             <button id="updateBtn">Update Names</button>
         </span>
     </div>
-  
+    <!-- end of modal -->
     </div>
+    <!-- end of board -->
     </body>
-
     <script src="js/roller.js"></script>
-
 </html>
