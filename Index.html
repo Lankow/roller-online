@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>League Roller</title>
-        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/roller.css">
-        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
         <div class="topnav">
@@ -16,7 +15,7 @@
                 <a class="topnav-option" href="Index.html">Home</a>
                 <a class="topnav-option" href="#aboutModal" id="aboutBtn">About</a>
                 <a class="topnav-option" href="https://github.com/Lankow" " target="_blank">GitHub</a>
-                <a class="topnav-option" href="#editModal" id="editBtn">Edit Summoners</a>
+                <a class="topnav-option" href="#editModal" id="editBtn">Edit Names</a>
             </span>
         </div>
         <div id="roll-team-btn" class="fade-in">ROLL TEAM!</div>
@@ -24,73 +23,73 @@
             <div class="pick">
                 <p class="summ-name">Summoner I</p>
                 <div class="champ-pic-wrapper">
-                    <img  class= "champ-pic"src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Ryze_0.jpg" alt="">
+                    <img  class= "champ-pic" id="champPic1" src="img/Random.jpg" alt="">
                     <div class="middle">
-                    <div class="reroll"><a href="#"><img class="reroll-icon" src="img/d10-icon-16.png"></a></div>
+                    <div class="reroll"><img onclick="makeAPick(1)" class="reroll-icon" src="img/d10-icon-16.png"></div>
                     </div>
                 </div>
                 <div class="champ-thumb-wrapper">
-                    <img  class= "champ-pic"src="http://ddragon.leagueoflegends.com/cdn/10.10.3208608/img/champion/Ryze.png" alt="">
+                    <img  class= "champ-pic" id="champThumb1" src="img/RandomThumb.jpg" alt="">
                 </div>
-                <p class="champ-name">Ryze</p>
-                <button class="reroll-thumb-btn">ReRoll</button>
+                <p class="champ-name" id="champ1">Champion</p>
+                <button class="reroll-thumb-btn" onclick="makeAPick(1,this)">ReRoll</button>
 
             </div>
             <div class="pick">
                 <p class="summ-name">Summoner II</p>
                 <div class="champ-pic-wrapper">
-                    <img  class= "champ-pic"src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Aatrox_0.jpg" alt="">
+                    <img  class= "champ-pic" id="champPic2" src="img/Random.jpg" alt="">
                     <div class="middle">
-                    <div class="reroll"><a href="#"><img class="reroll-icon" src="img/d10-icon-16.png"></a></div>
+                    <div class="reroll" ><img onclick="makeAPick(2)" class="reroll-icon" src="img/d10-icon-16.png"></div>
                     </div>
                 </div>
                 <div class="champ-thumb-wrapper">
-                    <img  class= "champ-pic"src="http://ddragon.leagueoflegends.com/cdn/10.10.3208608/img/champion/Aatrox.png" alt="">
+                    <img  class= "champ-pic" id="champThumb2" src="img/RandomThumb.jpg" alt="">
                 </div>
-                <p class="champ-name">Aatrox</p>
-                <button class="reroll-thumb-btn">ReRoll</button>
+                <p class="champ-name" id="champ2">Champion</p>
+                <button class="reroll-thumb-btn" onclick="makeAPick(2)">ReRoll</button>
             </div>
             <div class="pick">
                 <p class="summ-name">Summoner III</p>
                 <div class="champ-pic-wrapper">
-                    <img  class= "champ-pic"src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Thresh_0.jpg" alt="">
+                    <img  class= "champ-pic" id="champPic3" src="img/Random.jpg" alt="">
                     <div class="middle">
-                    <div class="reroll"><a href="#"><img class="reroll-icon" src="img/d10-icon-16.png"></a></div>
+                    <div class="reroll"><img onclick="makeAPick(3)" class="reroll-icon" src="img/d10-icon-16.png"></div>
                     </div>
                 </div>
                 <div class="champ-thumb-wrapper">
-                    <img  class= "champ-pic"src="http://ddragon.leagueoflegends.com/cdn/10.10.3208608/img/champion/Thresh.png" alt="">
+                    <img  class= "champ-pic" id="champThumb3" src="img/RandomThumb.jpg" alt="">
                 </div>
-                <p class="champ-name">Thresh</p>
-                <button class="reroll-thumb-btn">ReRoll</button>
+                <p class="champ-name" id="champ3">Champion</p>
+                <button class="reroll-thumb-btn" onclick="makeAPick(3)">ReRoll</button>
             </div>
             <div class="pick">
                 <p class="summ-name">Summoner IV</p>
                 <div class="champ-pic-wrapper">
-                    <img  class= "champ-pic"src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Xayah_0.jpg" alt="">
+                    <img  class= "champ-pic" id="champPic4" src="img/Random.jpg" alt="">
                     <div class="middle">
-                    <div class="reroll"><a href="#"><img class="reroll-icon" src="img/d10-icon-16.png"></a></div>
+                    <div class="reroll"><img onclick="makeAPick(4)"class="reroll-icon" src="img/d10-icon-16.png"></div>
                     </div>
                 </div>
                 <div class="champ-thumb-wrapper">
-                    <img  class= "champ-pic"src="http://ddragon.leagueoflegends.com/cdn/10.10.3208608/img/champion/Xayah.png" alt="">
+                    <img  class= "champ-pic" id="champThumb4" src="img/RandomThumb.jpg" alt="">
                 </div>
-                <p class="champ-name">Xayah</p>
-                <button class="reroll-thumb-btn">ReRoll</button>
+                <p class="champ-name" id="champ4">Champion</p>
+                <button class="reroll-thumb-btn" onclick="makeAPick(4)">ReRoll</button>
             </div>
             <div class="pick">
                 <p class="summ-name">Summoner V</p>
                 <div class="champ-pic-wrapper">
-                    <img  class= "champ-pic"src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Warwick_0.jpg" alt="">
+                    <img  class= "champ-pic" id="champPic5" src="img/Random.jpg" alt="">
                     <div class="middle">
-                    <div class="reroll"><a href="#"><img class="reroll-icon" src="img/d10-icon-16.png"></a></div>
+                    <div class="reroll" ><img onclick="makeAPick(5)"class="reroll-icon" src="img/d10-icon-16.png"></div>
                     </div>
                 </div>
                 <div class="champ-thumb-wrapper">
-                    <img  class= "champ-pic"src="http://ddragon.leagueoflegends.com/cdn/10.10.3208608/img/champion/Warwick.png" alt="">
+                    <img  class= "champ-pic" id="champThumb5" src="img/RandomThumb.jpg" alt="">
                 </div>
-                <p class="champ-name">Warwick</p>
-                <button class="reroll-thumb-btn">ReRoll</button>
+                <p class="champ-name" id="champ5">Champion</p>
+                <button class="reroll-thumb-btn" onclick="makeAPick(5)">ReRoll</button>
             </div>
         
         </div>
@@ -110,86 +109,18 @@
             gather new experiences and face variety od challenges.</p>
         </span>
         <span id="edit-wrapper"><h1>Edit Summoners names</h1>
-            <input type="text" name="" id="" placeholder="Enter name for a Summoner I...">
-            <input type="text" name="" id="" placeholder="Enter name for a Summoner II...">
-            <input type="text" name="" id="" placeholder="Enter name for a Summoner III...">
-            <input type="text" name="" id="" placeholder="Enter name for a Summoner IV...">
-            <input type="text" name="" id="" placeholder="Enter name for a Summoner V...">
-            <button>Submit Changes</button>
+            <input type="text" name="summ-edit"  maxlength ="11" placeholder="Enter name for a Summoner I...">
+            <input type="text" name="summ-edit"  maxlength ="11" placeholder="Enter name for a Summoner II...">
+            <input type="text" name="summ-edit"  maxlength ="11" placeholder="Enter name for a Summoner III...">
+            <input type="text" name="summ-edit"  maxlength ="11" placeholder="Enter name for a Summoner IV...">
+            <input type="text" name="summ-edit"  maxlength ="11" placeholder="Enter name for a Summoner V...">
+            <button id="updateBtn">Update Names</button>
         </span>
     </div>
   
     </div>
     </body>
-    <script>
-                        // Get the modal
-        var aboutModal = document.getElementById('aboutModal');
-        var editWrapper = document.getElementById('edit-wrapper');
-        var aboutWrapper = document.getElementById('about-wrapper');
-        
-        // Get the button that opens the modal
-        var aboutBtn = document.getElementById("aboutBtn");
-        var editBtn = document.getElementById('editBtn')
-        
-        // Get the <span> element that closes the modal
-        var aboutSpan = document.getElementsByClassName("close")[0];
 
-        // When the user clicks on the button, open the modal
-        aboutBtn.onclick = function() {
-            aboutModal.style.display = "block";
-            aboutWrapper.style.display = "block";
-            editWrapper.style.display = "none";
-        }
-        
-        editBtn.onclick = function() {
-            aboutModal.style.display = "block";
-            editWrapper.style.display = "block";
-            aboutWrapper.style.display = "none";
-        }
+    <script src="js/roller.js"></script>
 
-        // When the user clicks on <span> (x), close the modal
-        aboutSpan.onclick = function() {
-            aboutModal.style.display = "none";
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == aboutModal) {
-                aboutModal.style.display = "none";
-            }
-        }
-        
-        var teamBtn = document.getElementById("roll-team-btn");
-        var content = document.getElementById("board");
-        
-        teamBtn.onclick = function() {
-            teamBtn.style.display = "none";
-            content.classList.add('fade-in');
-            content.style.display = "grid";
-        }
-        
-    </script>
-    <script>
-        // Download current LoL version
-        var version = 'https://ddragon.leagueoflegends.com/realms/eune.json';
-        // Using current version generate link for champion data JSON
-        var champions = 'http://ddragon.leagueoflegends.com/cdn/'+ version +'/data/en_US/champion.json';
-    
-        
-
-    </script>
-    
-    <script language="javascript">
-        function changeImage() {
-    
-            if (document.getElementById("imgClickAndChange").src == "http://www.userinterfaceicons.com/80x80/minimize.png") 
-            {
-                document.getElementById("imgClickAndChange").src = "http://www.userinterfaceicons.com/80x80/maximize.png";
-            }
-            else 
-            {
-                document.getElementById("imgClickAndChange").src = "http://www.userinterfaceicons.com/80x80/minimize.png";
-            }
-        }
-    </script>
 </html>

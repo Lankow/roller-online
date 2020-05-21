@@ -9,6 +9,7 @@ body{
   background-image: url("../img/bg.jpg");
   background-position: center;
   background-size: cover;
+  background-attachment: fixed;
   background-repeat: no-repeat;
   height: 100vh;
   overflow-x: hidden;
@@ -40,13 +41,18 @@ body{
     font-size: 3vh
   }
   
+  .hamburger{
+    display:none;
+  }
+  
+  
   #roll-team-btn{
     transition: .5s ease;
     margin:25vh auto;
     font-size:calc(10px + 12vw);  
     text-align: center;
     color:#f2f2f2;
-    
+    text-shadow: #b39556 1px 0 2vw; 
     cursor:pointer;
   }
   
@@ -57,9 +63,9 @@ body{
   
   .logo-img{
     float:left;
-    height:4vh;
+    height:6vh;
     width: auto;
-    padding:1vw 1vh;
+    padding: 1vh 1vw;
     margin-left:1vw;
   }
   /* Style the links inside the navigation bar */
@@ -92,19 +98,16 @@ body{
     border-color:rgba(17, 17, 17, 0.9);
   }
   
-  .pick p{
-    margin: 0.5vh 0.5vw ;
-  }
-  
-  
   .champ-pic{
-    height:50vh;
+    width:90%;
+    height:auto;
     border-style:double;
     border-width: 5px;
     border-color:black;
-    margin:2vw 0;
+    margin:1vw 0;
     opacity: 1;
     transition: .5s ease;
+    transition: opacity 2s;
     backface-visibility: hidden;
   }
   
@@ -138,6 +141,7 @@ body{
   .reroll {
     transition: .5s ease;
     padding: 1rem 3rem;
+    
   }
   
   .reroll:hover{
@@ -150,6 +154,7 @@ body{
   
   .reroll-icon{
     width:10vw;
+    cursor: pointer;
   }
   
   /* The Modal (background) */
@@ -198,6 +203,17 @@ body{
   width:100%;
   color:white;
   background-color: #b39556;
+  text-shadow: #1b1b1b 1px 0 10px;
+  border:double 5px #1b1b1b; 
+}
+
+.modal-content button:active{
+    background-color: #ceac64;
+}
+
+.modal-content button:focus{
+  outline: none;
+  box-shadow: none;
 }
 
 /* The Close Button */
@@ -234,6 +250,11 @@ body{
 
 
 @media only screen and (max-width: 600px) {
+  
+  .topnav{
+    position: fixed;
+    top:0;
+  }
  .modal-content{
    width:85%;
  }
@@ -253,6 +274,15 @@ body{
     border:double 5px #1b1b1b; 
  }
  
+ .reroll-thumb-btn:active{
+  background-color: #ceac64;
+  }
+  
+  .reroll-thumb-btn:focus{
+    outline: none;
+    box-shadow: none;
+    }
+ 
  .champ-pic-wrapper{
    display: none;
  }
@@ -261,11 +291,22 @@ body{
   display:none;
   grid-template-columns: 80vw;
   grid-gap:2vh;
-  padding:5vh 2vw;
+  padding:5% 10%;
+  margin:20% 0;
 }
 
 .pick{
   margin:0 auto;
+  height:60vh;
+  width:60vw;
+}
+
+.logo{
+  display: none;
+}
+
+#roll-team-btn{
+  margin:40vh auto;
 }
 
 }
