@@ -12,7 +12,7 @@
         var aboutWrapper = document.getElementById('about-wrapper');
         
         var aboutBtn = document.getElementById("aboutBtn");
-        var editBtn = document.getElementById('editBtn')
+        var editBtn = document.getElementById('editBtn');
         var updateBtn = document.getElementById('updateBtn');
         
         var aboutSpan = document.getElementsByClassName("close")[0];
@@ -24,7 +24,7 @@
         }
         
         editBtn.onclick = function() {
-            modal
+            modal.style.display = "block";
             editWrapper.style.display = "block";
             aboutWrapper.style.display = "none";
         }
@@ -69,7 +69,7 @@
         var keys;
         
         $.getJSON(versionUrl, function(data){
-                version = data.n.item.substring(0, data.n.item.length-4);
+                version = data.n.item;
                 championsUrl = 'http://ddragon.leagueoflegends.com/cdn/'+ version +'/data/en_US/champion.json';
                 $.getJSON(championsUrl, function(data){
                 championsData = data.data;
