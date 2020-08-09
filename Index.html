@@ -4,125 +4,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>League Roller</title>
-        <link rel="stylesheet" href="css/roller.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    </head>
-    <body>
-        <!-- topnav -->
-        <div class="topnav">
-            <a href="Index.html"><img class="logo-img" src="img/pngfuel.com.png">
-            <div class="logo">LEAGUE ROLLER</div></a>
-            <span class="topnav-options-wrapper">
-                <a class="topnav-option" href="Index.html">Home</a>
-                <a class="topnav-option" href="#aboutModal" id="aboutBtn">About</a>
-                <a class="topnav-option" href="https://github.com/Lankow" " target="_blank">GitHub</a>
-                <a class="topnav-option" href="#editModal" id="editBtn">Edit Names</a>
-            </span>
+    <link rel="stylesheet" href="css/roller.css">
+</head>
+<body>
+    <div class="topbar-wrapper">
+        <div class="topbar-logo">
+            <a class="topbar-logo-link" href="index.html">
+                <img src="img/lol-icon.png">
+            </a>
+            <button class="topbar-roll">
+                <div class="circle-half-right"></div>
+                <div class="topbar-roll-name">Roll Team</div>
+                <div class="triangle-right">
+                    <div class="triangle-shape"></div>
+                <div class="triangle-border"></div>
+                </div>
+            </button>
         </div>
-        <!-- roll team button -->
-        <div id="roll-team-btn" class="fade-in">ROLL TEAM!</div>
-        <!-- board with 5 picks -->
-        <div class="content" id="board">
-            <div class="pick">
-                <p class="summ-name">Summoner I</p>
-                <div class="champ-pic-wrapper">
-                    <img  class= "champ-pic" id="champPic1" src="img/Random.jpg" alt="">
-                    <div class="middle">
-                    <div class="reroll"><img onclick="makeAPick(1)" class="reroll-icon" src="img/d10-icon-16.png"></div>
+        <button id="topbar-options-trigger">
+            <i class="icon-menu"></i>
+        </button>
+    </div>
+    <div class="topbar-options">
+        <div class="topbar-options-header">Roller Online</div>
+        <div class="topbar-option">
+            <i class="icon-arrows-cw"></i>
+            <div>Roll Team</div>
+        </div>
+        <div class="topbar-option">
+            <i class="icon-pencil"></i>
+            <div>Edit Players</div>
+        </div>
+        <a href="https://github.com/Lankow" class="topbar-option">
+            <i class="icon-github-circled"></i>
+            <div>GitHub</div>
+        </a>
+        <div class="topbar-option">
+            <i class="icon-help"></i>
+            <div>About</div>
+        </div>
+        <div class="topbar-option">
+            <i class="icon-home"></i>
+            <div>Home</div>
+        </div>
+    </div>
+    <div class="main-wrapper">
+        <div class="main-pick">
+            <img class="main-pick-pict" src="img/RandomThumb.jpg" alt="">
+            <div class="main-pick-summ">summoner</div>
+            <div class="main-pick-name">Unknown</div>
+            <div class="main-pick-options"> 
+                <button class="main-pick-roll">
+                    <div class="roll-name">Reroll</div>
+                    <div class="triangle-right">
+                        <div class="triangle-shape"></div>
+                    <div class="triangle-border"></div>
+                    </div>
+                </button>
+                <div class="main-pick-menu-trigger">
+                    <i class="icon-dot-3 trigger"></i>
+                    <div class="main-pick-menu">
+                        <div class="pick-menu-option">
+                            <i class="icon-pencil"></i>
+                            <div>Edit Summoner</div>
+                        </div>
+                        <div class="pick-menu-option">
+                            <i class="icon-cancel"></i>
+                            <div>Delete Summoner</div>
+                        </div>
                     </div>
                 </div>
-                <div class="champ-thumb-wrapper">
-                    <img  class= "champ-pic" id="champThumb1" src="img/RandomThumb.jpg" alt="">
-                </div>
-                <p class="champ-name" id="champ1">Champion</p>
-                <button class="reroll-thumb-btn" onclick="makeAPick(1,this)">ReRoll</button>
-
             </div>
-            <div class="pick">
-                <p class="summ-name">Summoner II</p>
-                <div class="champ-pic-wrapper">
-                    <img  class= "champ-pic" id="champPic2" src="img/Random.jpg" alt="">
-                    <div class="middle">
-                    <div class="reroll" ><img onclick="makeAPick(2)" class="reroll-icon" src="img/d10-icon-16.png"></div>
-                    </div>
-                </div>
-                <div class="champ-thumb-wrapper">
-                    <img  class= "champ-pic" id="champThumb2" src="img/RandomThumb.jpg" alt="">
-                </div>
-                <p class="champ-name" id="champ2">Champion</p>
-                <button class="reroll-thumb-btn" onclick="makeAPick(2)">ReRoll</button>
-            </div>
-            <div class="pick">
-                <p class="summ-name">Summoner III</p>
-                <div class="champ-pic-wrapper">
-                    <img  class= "champ-pic" id="champPic3" src="img/Random.jpg" alt="">
-                    <div class="middle">
-                    <div class="reroll"><img onclick="makeAPick(3)" class="reroll-icon" src="img/d10-icon-16.png"></div>
-                    </div>
-                </div>
-                <div class="champ-thumb-wrapper">
-                    <img  class= "champ-pic" id="champThumb3" src="img/RandomThumb.jpg" alt="">
-                </div>
-                <p class="champ-name" id="champ3">Champion</p>
-                <button class="reroll-thumb-btn" onclick="makeAPick(3)">ReRoll</button>
-            </div>
-            <div class="pick">
-                <p class="summ-name">Summoner IV</p>
-                <div class="champ-pic-wrapper">
-                    <img  class= "champ-pic" id="champPic4" src="img/Random.jpg" alt="">
-                    <div class="middle">
-                    <div class="reroll"><img onclick="makeAPick(4)"class="reroll-icon" src="img/d10-icon-16.png"></div>
-                    </div>
-                </div>
-                <div class="champ-thumb-wrapper">
-                    <img  class= "champ-pic" id="champThumb4" src="img/RandomThumb.jpg" alt="">
-                </div>
-                <p class="champ-name" id="champ4">Champion</p>
-                <button class="reroll-thumb-btn" onclick="makeAPick(4)">ReRoll</button>
-            </div>
-            <div class="pick">
-                <p class="summ-name">Summoner V</p>
-                <div class="champ-pic-wrapper">
-                    <img  class= "champ-pic" id="champPic5" src="img/Random.jpg" alt="">
-                    <div class="middle">
-                    <div class="reroll" ><img onclick="makeAPick(5)" class="reroll-icon" src="img/d10-icon-16.png"></div>
-                    </div>
-                </div>
-                <div class="champ-thumb-wrapper">
-                    <img  class= "champ-pic" id="champThumb5" src="img/RandomThumb.jpg" alt="">
-                </div>
-                <p class="champ-name" id="champ5">Champion</p>
-                <button class="reroll-thumb-btn" onclick="makeAPick(5)">ReRoll</button>
-            </div>
+        </div>
         
-        </div>
-        <!-- modal -->
-    <div id="modal" class="modal fade-in">
-        <div class="modal-content">
-        <div class="close">x</div>
-        <span id="about-wrapper"><h1>About</h1>
-        <p>League roller - was initially a window application created using c++ builder.
-            Now It's also available as a WebApplication.  
-            Application rolls random team for League of Legends players. 
-            Players can edit their summoners names and roll pick for themselves. 
-            Pick is always unique.</p>
-        <p>App was created by Maciej Lankow - Student and Architect from Szczecin fascinated about any kind of technology and willing to learn. 
-            I treat computers and coding rather like an entertaintment and limitless opportunity to develop myself. 
-            I'm open minded, social person, looking for a chance to start working as junior software developer to learn,
-            gather new experiences and face variety od challenges.</p>
-        </span>
-        <span id="edit-wrapper"><h1>Edit Summoners names</h1>
-            <input type="text" name="summ-edit"  maxlength ="11" placeholder="Enter name for a Summoner I...">
-            <input type="text" name="summ-edit"  maxlength ="11" placeholder="Enter name for a Summoner II...">
-            <input type="text" name="summ-edit"  maxlength ="11" placeholder="Enter name for a Summoner III...">
-            <input type="text" name="summ-edit"  maxlength ="11" placeholder="Enter name for a Summoner IV...">
-            <input type="text" name="summ-edit"  maxlength ="11" placeholder="Enter name for a Summoner V...">
-            <button id="updateBtn">Update Names</button>
-        </span>
+        <button class="main-add">
+            <i class="icon-plus-circle"></i>
+            <div>Add Summoner</div>
+        </button>
     </div>
-    <!-- end of modal -->
+    <div class="footer">
+        <div>&copy; Copyright 2020 Lankow</div>
     </div>
-    <!-- end of board -->
-    </body>
+    <!--JQuery Library-->
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
     <script src="js/roller.js"></script>
+</body>
 </html>
