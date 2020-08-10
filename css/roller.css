@@ -54,22 +54,22 @@ button{
     transform: translateX(80vw);
     display: flex;
     flex-direction: column;
-    border-left:2px solid #59481d;
+    border-left:0.2em solid #59481d;
 }
 .topbar-options-header{
     color:#cdbe91;
-    font-size: 2.5em;
     cursor: pointer;
     border: none;
-    padding: 28px 0 27px 20px;
-    border-bottom: solid 1px #3d4143;
+    padding: 2.8em 0 2.7em 2em;
+    border-bottom: solid 0.1em #3d4143;
     text-transform: uppercase;
     -webkit-tap-highlight-color: transparent;
+    font-size: 2.5em;
 }
 .topbar-option{
     display: flex;
-    padding:20px;
-    border-bottom: 1px solid #3d4143;
+    padding:2em;
+    border-bottom: 0.1em solid #3d4143;
     font-size:1.8em;
     width: 100%;
     margin:0 auto;
@@ -78,7 +78,7 @@ button{
     -webkit-tap-highlight-color: transparent;
 }
 .topbar-option i{
-    margin-right:10px;
+    margin-right:1em;
 }
 .topbar-options-active{
     transform: translateX(0vw);
@@ -91,7 +91,7 @@ button{
 .topbar-logo img{
     height:4.1em;
     width: auto;
-    margin-bottom: 4px;
+    margin-bottom: 0.4em;
 }
 .topbar-logo-link{
     z-index:10;
@@ -101,13 +101,13 @@ button{
     flex-grow: 1;
     background: transparent;
     border: none;
-    margin-left:-10px;
+    margin-left:-1em;
     text-transform: uppercase;
     font-family: 'Friz';
-    margin-left: -15px;
+    margin-left: -1.5em;
     align-items: center;
     margin-left: -32px;
-    padding:5px 5px 5px 0;
+    padding:0.5em 0.5em 0.5em 0;
     border:1px solid #30261d;
     border-left: none;
 }
