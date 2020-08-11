@@ -32,7 +32,7 @@ button{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1em 4%;
+    padding: 10px 4%;
     transition: transform 0.3s 0.1s ease-in-out;
     color: #c0b389;
     border-bottom: solid 1px #3d4143;
@@ -54,23 +54,23 @@ button{
     transform: translateX(80vw);
     display: flex;
     flex-direction: column;
-    border-left:0.2em solid #59481d;
+    border-left:2px solid #59481d;
 }
 .topbar-options-header{
     color:#cdbe91;
     cursor: pointer;
     border: none;
-    padding: 2.8em 0 2.7em 2em;
-    border-bottom: solid 0.1em #3d4143;
+    padding: 28px 0 27px 20px;
+    border-bottom: solid 1px #3d4143;
     text-transform: uppercase;
     -webkit-tap-highlight-color: transparent;
-    font-size: 2.5em;
+    font-size: 25px;
 }
 .topbar-option{
     display: flex;
-    padding:2em;
-    border-bottom: 0.1em solid #3d4143;
-    font-size:1.8em;
+    padding:20px;
+    border-bottom: 1px solid #3d4143;
+    font-size:18px;
     width: 100%;
     margin:0 auto;
     display: flex;
@@ -78,7 +78,7 @@ button{
     -webkit-tap-highlight-color: transparent;
 }
 .topbar-option i{
-    margin-right:1em;
+    margin-right:10px;
 }
 .topbar-options-active{
     transform: translateX(0vw);
@@ -89,9 +89,9 @@ button{
 }
 
 .topbar-logo img{
-    height:4.1em;
+    height:41px;
     width: auto;
-    margin-bottom: 0.4em;
+    margin-bottom: 4px;
 }
 .topbar-logo-link{
     z-index:10;
@@ -101,13 +101,13 @@ button{
     flex-grow: 1;
     background: transparent;
     border: none;
-    margin-left:-1em;
+    margin-left:-10px;
     text-transform: uppercase;
     font-family: 'Friz';
-    margin-left: -1.5em;
+    margin-left: -15px;
     align-items: center;
     margin-left: -32px;
-    padding:0.5em 0.5em 0.5em 0;
+    padding:5px 5px 5px 0;
     border:1px solid #30261d;
     border-left: none;
 }
@@ -131,7 +131,7 @@ button{
 
 .circle-half-right{
         width: 48px;
-        height: 24px; /* as the half of the width */
+        height: 24px; 
         border-top-left-radius: 50px;
         border-top-right-radius: 50px;
         border: 4px solid rgba(9,190,181,1);
@@ -151,8 +151,8 @@ button{
     border: 4px solid;
     border-image-slice: 1;
     border-image-source: linear-gradient(90deg, rgba(9,190,181,1) 0%, rgba(2,102,138,1) 100%);
-    font-size:1.5em;
-    padding:8px 20px 8px 30px;
+    font-size:18px;
+    padding:9px 20px 9px 35px;
     border-right: none;
     border-left:none;
     flex-grow: 1;
@@ -160,7 +160,7 @@ button{
 }
 #topbar-options-trigger{
     color:#c0b389;
-    font-size: 2.8em;
+    font-size: 28px;
     cursor: pointer;
     border: none;
     background: none;
@@ -172,7 +172,7 @@ button{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 10em;
+    padding-top: 100px;
     background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(19,25,36,1) 100%);
 }
 .main-pick{
@@ -182,9 +182,9 @@ button{
     justify-content: space-evenly;
     background: rgba(0, 0, 0, 0.5);
     width: 90%;
-    margin-bottom: 2em;
+    margin-bottom: 20px;
     border: 1px solid #3c3c41;
-    padding:1em 0;
+    padding:10px 0;
     color: #f0e6d2;
     text-transform: uppercase;
 }
@@ -193,11 +193,11 @@ button{
     width: 90%;
     height:auto;
     border: 2px solid #3c3c41;
-    margin:1em auto;
+    margin:10px auto;
 }
 
 .main-pick-name, .main-pick-summ{
-    font-size:3em;
+    font-size:30px;
     padding-top:3px;
 }
 .main-pick-summ{
@@ -210,7 +210,7 @@ button{
     align-items: center;
     justify-content: flex-start;
     align-self:flex-start;
-    margin:0.5em 0;
+    margin:5px 0;
     background: transparent;
     border:none;
     flex-grow: 1;
@@ -223,7 +223,7 @@ button{
     border-image-slice: 1;
     border-image-source: linear-gradient(90deg, rgba(9,190,181,1) 0%, rgba(2,102,138,1) 100%);
     text-transform: uppercase;
-    font-size:2.5em;
+    font-size:33px;
     padding:0 25px;
     border-right: none;
     flex-grow: 1;
@@ -256,7 +256,7 @@ button{
     display: flex;
     align-items: center;
     width: 90%;
-    margin:0.5em auto;
+    margin:5px auto;
 }
 .main-pick-menu-trigger{
     background: transparent;
@@ -295,7 +295,7 @@ button{
 .pick-menu-option{
     padding:18px 0;
     border-bottom: 1px solid #1f2123;
-    font-size:1.8em;
+    font-size:18px;
     width: 100%;
     margin:0 auto;
     display: flex;
@@ -316,9 +316,9 @@ button{
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.5em;
+    font-size: 25px;
     padding:10px 0;
-    margin-bottom: 1em;
+    margin-bottom: 20px;
     background: #1e2328;
     color:#cdbe91;
     text-transform: uppercase;
@@ -330,11 +330,10 @@ button{
 
 .footer{
     color: #cdbe91;
-    font-size:1.5em;
+    font-size:18px;
     width:92%;
-    padding:1em 4%;
+    padding:15px 4%;
     border-top: 1px solid #3c3c41;
     text-transform: uppercase;
     background: rgba(0,0,0,0.5);
 }
-
