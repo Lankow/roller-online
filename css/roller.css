@@ -152,7 +152,7 @@ button{
     border-image-slice: 1;
     border-image-source: linear-gradient(90deg, rgba(9,190,181,1) 0%, rgba(2,102,138,1) 100%);
     font-size:18px;
-    padding:9px 20px 9px 35px;
+    padding:11px 20px 11px 35px;
     border-right: none;
     border-left:none;
     flex-grow: 1;
@@ -224,8 +224,9 @@ button{
     border-image-source: linear-gradient(90deg, rgba(9,190,181,1) 0%, rgba(2,102,138,1) 100%);
     text-transform: uppercase;
     font-size:33px;
-    padding:0 25px;
+    padding:3px 25px 4px;
     border-right: none;
+    text-align: center;
     flex-grow: 1;
 }
 .triangle-shape{
