@@ -156,7 +156,7 @@ button{
     border-right: none;
     border-left:none;
     flex-grow: 1;
-    margin-left:-33px;
+    margin-left:-35px;
 }
 #topbar-options-trigger{
     color:#c0b389;
@@ -236,6 +236,7 @@ button{
   border-bottom: 19px solid transparent;
   border-left: 19px solid #1e2328;
   z-index: 10;
+  margin-left:-2px;
 }
 .triangle-border{
   width: 0; 
