@@ -228,15 +228,16 @@ button{
     border-right: none;
     text-align: center;
     flex-grow: 1;
+    z-index: 3;
 }
 .triangle-shape{
   width: 0; 
   height: 0; 
-  border-top: 19px solid transparent;
-  border-bottom: 19px solid transparent;
-  border-left: 19px solid #1e2328;
-  z-index: 10;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 20px solid #1e2328;
   margin-left:-2px;
+  z-index: 2;
 }
 .triangle-border{
   width: 0; 
