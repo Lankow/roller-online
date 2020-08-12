@@ -223,8 +223,8 @@ button{
     border-image-slice: 1;
     border-image-source: linear-gradient(90deg, rgba(9,190,181,1) 0%, rgba(2,102,138,1) 100%);
     text-transform: uppercase;
-    font-size:30px;
-    padding:5px 25px;
+    font-size:18px;
+    padding:11px 25px;
     border-right: none;
     text-align: center;
     flex-grow: 1;
@@ -238,7 +238,7 @@ button{
   border-left: 20px solid #1e2328;
   z-index: 2;
   position: relative;
-  left:-3px;
+  left:-5px;
 }
 .triangle-border{
   width: 0; 
