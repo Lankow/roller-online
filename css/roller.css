@@ -236,7 +236,7 @@ button{
   border-top: 20px solid transparent;
   border-bottom: 20px solid transparent;
   border-left: 20px solid #1e2328;
-  z-index: 2;
+  z-index: 4;
   position: relative;
   left:-5px;
 }
