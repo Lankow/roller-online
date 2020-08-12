@@ -233,11 +233,10 @@ button{
 .triangle-shape{
   width: 0; 
   height: 0; 
-  border-top: 21px solid transparent;
-  border-bottom: 21px solid transparent;
-  border-left: 21px solid #1e2328;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 20px solid #1e2328;
   z-index: 2;
-  
   position: relative;
 }
 .triangle-border{
@@ -264,7 +263,7 @@ button{
 }
 .main-pick-menu-trigger{
     background: transparent;
-    padding:12px;
+    padding:11px;
     border: solid 2px #0a323c;
     border-left:none;
     margin-left:-6px;
