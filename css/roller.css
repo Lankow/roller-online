@@ -238,6 +238,7 @@ button{
   border-left: 20px solid #1e2328;
   z-index: 2;
   position: relative;
+  left:-2px;
 }
 .triangle-border{
   width: 0; 
@@ -263,7 +264,7 @@ button{
 }
 .main-pick-menu-trigger{
     background: transparent;
-    padding:11px;
+    padding:10px;
     border: solid 2px #0a323c;
     border-left:none;
     margin-left:-6px;
