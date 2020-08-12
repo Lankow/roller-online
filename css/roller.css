@@ -223,8 +223,8 @@ button{
     border-image-slice: 1;
     border-image-source: linear-gradient(90deg, rgba(9,190,181,1) 0%, rgba(2,102,138,1) 100%);
     text-transform: uppercase;
-    font-size:33px;
-    padding:3px 25px 4px;
+    font-size:18px;
+    padding:11px 25px;
     border-right: none;
     text-align: center;
     flex-grow: 1;
@@ -236,15 +236,15 @@ button{
   border-top: 20px solid transparent;
   border-bottom: 20px solid transparent;
   border-left: 20px solid #1e2328;
-  margin-left:-2px;
+  margin-left:-1px;
   z-index: 2;
 }
 .triangle-border{
   width: 0; 
   height: 0; 
-  border-top: 23px solid transparent;
-  border-bottom: 23px solid transparent;
-  border-left: 23px solid rgba(2,102,138,1);
+  border-top: 24px solid transparent;
+  border-bottom: 24px solid transparent;
+  border-left: 24px solid rgba(2,102,138,1);
   position: absolute;
 }
 .triangle-right{
@@ -252,8 +252,7 @@ button{
     align-items: center;
     border-top: solid 2px #0a323c;
     border-bottom: solid 2px #0a323c;
-    padding:3px 2px 3px 0;
-    margin-left:-2px;
+    padding:2px 2px 2px 0;
 }
 
 .main-pick-options{
