@@ -236,8 +236,9 @@ button{
   border-top: 20px solid transparent;
   border-bottom: 20px solid transparent;
   border-left: 20px solid #1e2328;
-  margin-left:-1px;
   z-index: 2;
+  left:-1px;
+  position: relative;
 }
 .triangle-border{
   width: 0; 
@@ -253,7 +254,6 @@ button{
     border-top: solid 2px #0a323c;
     border-bottom: solid 2px #0a323c;
     padding:2px 2px 2px 0;
-    margin-left: -2px;
 }
 
 .main-pick-options{
