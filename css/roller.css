@@ -238,7 +238,7 @@ button{
   border-left: 20px solid #1e2328;
   z-index: 4;
   position: relative;
-  left:-5px;
+  left:-3px;
 }
 .triangle-border{
   width: 0; 
