@@ -227,6 +227,7 @@ button{
     padding:11px 25px;
     border-right: none;
     text-align: center;
+    margin-right:-2px;
     flex-grow: 1;
     z-index: 3;
 }
