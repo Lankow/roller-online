@@ -116,7 +116,10 @@ button{
 }
 .topbar-roll:active .topbar-roll-name,
 .main-pick-roll:active .roll-name,
-.trigger:active{
+.trigger:active,
+.topbar-roll:hover .topbar-roll-name,
+.main-pick-roll:hover .roll-name,
+.trigger:hover{
     color:#5194b1;
     text-shadow:#02567b  1px 0 5px; 
 }
@@ -124,7 +127,11 @@ button{
 .main-add:active,
 #topbar-options-trigger:active,
 .topbar-option:active,
-.topbar-options-header:active{
+.topbar-options-header:active,
+.main-add:hover,
+#topbar-options-trigger:hover,
+.topbar-option:hover,
+.topbar-options-header:hover{
     color:#fff;
     text-shadow:#02567b  1px 0 5px; 
 }
