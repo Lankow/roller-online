@@ -227,7 +227,6 @@ button{
     padding:11px 25px;
     border-right: none;
     text-align: center;
-    margin-right:-4px;
     flex-grow: 1;
     z-index: 3;
 }
@@ -247,6 +246,7 @@ button{
   border-top: 24px solid transparent;
   border-bottom: 24px solid transparent;
   border-left: 24px solid rgba(2,102,138,1);
+  z-index: 1;
   position: absolute;
 }
 .triangle-right{
