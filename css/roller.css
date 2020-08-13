@@ -115,19 +115,14 @@ button{
     outline: none;
 }
 
-.topbar-roll:hover .topbar-roll-name,
-.main-pick-roll:hover .roll-name,
-.trigger:hover,
+
 .topbar-roll:active .topbar-roll-name,
 .main-pick-roll:active .roll-name,
 .trigger:active{
     color:#5194b1;
     text-shadow:#02567b  1px 0 5px; 
 }
-.main-add:hover,
-#topbar-options-trigger:hover,
-.topbar-option:hover,
-.topbar-options-header:hover,
+
 .main-add:active,
 #topbar-options-trigger:active,
 .topbar-option:active,
@@ -336,6 +331,11 @@ button{
     color:#cdbe91;
     text-transform: uppercase;
     border: solid 1px #c3a464;
+}
+.main-add-inactive{
+    transition: all 0.1s 0.3s;
+    color: #3c3c41;
+    border-color: #5c5b57;
 }
 .main-add i{
     margin-right:5px;
