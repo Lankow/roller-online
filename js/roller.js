@@ -1,4 +1,4 @@
-const pickTemplate = "<div class='main-pick'>" + $(".main-pick").eq(0).html() + "</div>";
+const pickTemplate = "<div class='main-pick main-pick-inactive'>" + $(".main-pick").eq(0).html() + "</div>";
 
 window.onload = function() {
     if(/iP(hone|ad)/.test(window.navigator.userAgent)) {

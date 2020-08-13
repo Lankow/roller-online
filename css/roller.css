@@ -177,6 +177,7 @@ button{
     align-items: center;
     padding-top: 100px;
     background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(19,25,36,1) 100%);
+    scroll-snap-type: y mandatory;
 }
 .main-pick{
     display: flex;
@@ -190,6 +191,7 @@ button{
     padding:10px 0;
     color: #f0e6d2;
     text-transform: uppercase;
+    scroll-snap-align: start;
 }
 
 .main-pick-pict{
