@@ -9,6 +9,15 @@ $('.trigger').click(function(e) {
     $(this).siblings('.main-pick-menu').toggleClass('menu-active');
 });
 
+$('.trigger-about').click(function(e) {
+    $('#modal-about').addClass('modal-active');
+});
+
+$('.trigger-close').click(function(e) {
+    $('.modal').removeClass('modal-active');
+});
+
+
 $('.menu-option-delete').click(function(e) {
     if($('.main-pick').length>1){
         if($('.main-pick').length==5) $('.main-add').removeClass('main-add-inactive');

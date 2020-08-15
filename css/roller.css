@@ -126,7 +126,8 @@ button{
 .main-add:active,
 #topbar-options-trigger:active,
 .topbar-option:active,
-.topbar-options-header:active
+.topbar-options-header:active,
+.trigger-close:active
 {
     color:#fff;
     text-shadow:#02567b  1px 0 5px; 
@@ -177,7 +178,6 @@ button{
     align-items: center;
     padding-top: 100px;
     background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(19,25,36,1) 100%);
-    scroll-snap-type: y mandatory;
 }
 .main-pick{
     display: flex;
@@ -191,7 +191,6 @@ button{
     padding:10px 0;
     color: #f0e6d2;
     text-transform: uppercase;
-    scroll-snap-align: start;
 }
 
 .main-pick-pict{
@@ -318,6 +317,7 @@ button{
 .pick-menu-option:last-child{
     border-bottom:2px solid #59481d;
 }
+
 .pick-menu-option i{
     margin:0 10px;
 }
@@ -351,4 +351,70 @@ button{
     border-top: 1px solid #3c3c41;
     text-transform: uppercase;
     background: rgba(0,0,0,0.5);
+}
+
+.modal{
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    bottom:0;
+    right:0;
+    background: rgba(0, 0, 0, 0.7);
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    transition: all 0.3s 0.1s ease-in-out;
+}
+.modal-active{
+    transition: all 0.3s 0.1s ease-in-out;
+    visibility: visible;
+    opacity: 1;
+}
+.modal-content{
+    position: relative;
+    top:50vh;
+    margin-top:-150px;
+    left:calc(5% - 2px);
+    width: 90%;
+    height:300px;
+    background: #010a13;
+    border:2px solid #60491f;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-content-text{
+    color:#969284;
+    width:90%;
+    text-align: center;
+    font-size:15px;
+    flex-grow: 1;
+    margin-top:30px;
+}
+.modal-content-button{
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-size: 20px;
+    padding:10px 25px;
+    background: #1e2328;
+    color:#c9bb8f;
+    border:1px solid #c8a96c;
+}
+
+.modal-content-close{
+    position: absolute;;
+    top:-20px;
+    right:-10px;
+    height:40px;
+    width:40px;
+    background: #1e2328;
+    color:#c9bb8f;
+    border:2px solid #60491f;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size:15px;
 }
