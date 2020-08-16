@@ -91,7 +91,7 @@ button{
 .topbar-logo img{
     height:41px;
     width: auto;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
 }
 .topbar-logo-link{
     z-index:10;
@@ -373,10 +373,10 @@ button{
 .modal-content{
     position: relative;
     top:50vh;
-    margin-top:-150px;
+    margin-top:-165px;
     left:calc(5% - 2px);
     width: 90%;
-    height:300px;
+    min-height:200px;
     background: #010a13;
     border:2px solid #60491f;
     display: flex;
@@ -385,13 +385,35 @@ button{
     align-items: center;
 }
 
+.modal-content-header{
+    color:#c9bb8f;
+    width:90%;
+    text-align: center;
+    font-size: 25px;
+    margin-top:30px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.modal-content-input{
+    width: 90%;
+    height:30px;
+    background: transparent;
+    border:1px solid #60491f;
+    font-family: 'Friz';
+    padding-left:10px;
+    margin:10px 0;
+    color:#969284;
+    text-transform: uppercase;
+}
+
 .modal-content-text{
     color:#969284;
     width:90%;
     text-align: center;
     font-size:15px;
     flex-grow: 1;
-    margin-top:30px;
+    margin:10px 0 20px;
 }
 .modal-content-button{
     margin-bottom: 20px;
@@ -417,4 +439,8 @@ button{
     align-items: center;
     justify-content: center;
     font-size:15px;
+}
+
+.trigger-save{
+    margin-top:15px;
 }

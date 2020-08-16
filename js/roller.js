@@ -13,6 +13,30 @@ $('.trigger-about').click(function(e) {
     $('#modal-about').addClass('modal-active');
 });
 
+$('.trigger-summoners').click(function(e) {
+    const inputTemplate = $('.modal-content-input:first').clone(true,true);
+    $('.modal-content-input').remove();
+    let currSumms = $('.main-pick-summ');
+    for(i=0;i<currSumms.length;i++){
+        let input = inputTemplate.clone(true,true);
+        input.val(currSumms.eq(i).text());
+        $( ".trigger-save" ).before(function() {
+            return input;
+          });
+    }
+    $('#modal-summoners').addClass('modal-active');
+});
+
+$('.trigger-save').click(function(e) {
+    const newNames = $('.modal-content-input');
+    let currSumms = $('.main-pick-summ');
+    for(i=0;i<newNames.length;i++){
+        let newName = newNames.eq(i).val();
+        if(newName) currSumms.eq(i).text(newName);
+    }
+    $('.modal').removeClass('modal-active');
+});
+
 $('.trigger-close').click(function(e) {
     $('.modal').removeClass('modal-active');
 });

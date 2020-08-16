@@ -31,9 +31,9 @@
             <i class="icon-arrows-cw"></i>
             <div>Roll Team</div>
         </div>
-        <div class="topbar-option">
+        <div class="topbar-option trigger-summoners">
             <i class="icon-pencil"></i>
-            <div>Edit Players</div>
+            <div>Edit Summoners</div>
         </div>
         <a href="https://github.com/Lankow" class="topbar-option">
             <i class="icon-github-circled"></i>
@@ -89,6 +89,7 @@
             <div class="modal-content-close trigger-close">
                 <i class="icon-cancel"></i>
             </div>
+            <div class="modal-content-header">About</div>
             <div class="modal-content-text">  
             Application rolls random team for League of Legends players. 
             Players can edit their summoners names and roll pick for themselves. 
@@ -96,6 +97,16 @@
             I treat computers and coding rather like an entertaintment and limitless opportunity to develop myself. 
             </div>
             <div class="modal-content-button trigger-close">close</div>
+        </div>
+    </div>
+    <div class="modal" id="modal-summoners">
+        <div class="modal-content">
+            <div class="modal-content-close trigger-close">
+                <i class="icon-cancel"></i>
+            </div>
+            <div class="modal-content-header">Edit Summonners</div>
+            <input type="text" class="modal-content-input" maxlength ="9" placeholder="Enter Summoner Name">
+            <div class="modal-content-button trigger-save">save</div>
         </div>
     </div>
     <!--JQuery Library-->
