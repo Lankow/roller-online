@@ -127,7 +127,8 @@ button{
 #topbar-options-trigger:active,
 .topbar-option:active,
 .topbar-options-header:active,
-.trigger-close:active
+.trigger-close:active,
+.trigger-save:active
 {
     color:#fff;
     text-shadow:#02567b  1px 0 5px; 
