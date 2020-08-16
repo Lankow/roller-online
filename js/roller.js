@@ -1,4 +1,5 @@
-// Function to enable active pseudoclass on mobile
+var editSumm;
+
 window.onload = function() {
     if(/iP(hone|ad)/.test(window.navigator.userAgent)) {
         document.body.addEventListener('touchstart', function() {}, false);
@@ -14,6 +15,7 @@ $('.trigger-about').click(function(e) {
 });
 
 $('.trigger-summoners').click(function(e) {
+    $('#modal-summoners .modal-content-header').text("Edit Summoners");
     const inputTemplate = $('.modal-content-input:first').clone(true,true);
     $('.modal-content-input').remove();
     let currSumms = $('.main-pick-summ');
@@ -28,17 +30,23 @@ $('.trigger-summoners').click(function(e) {
 });
 
 $('.trigger-save').click(function(e) {
+    if(editSumm!=null){
+        $('.main-pick-summ').eq(editSumm).text($('.modal-content-input').val());
+        editSumm = null;
+    }else{
     const newNames = $('.modal-content-input');
     let currSumms = $('.main-pick-summ');
     for(i=0;i<newNames.length;i++){
         let newName = newNames.eq(i).val();
         if(newName) currSumms.eq(i).text(newName);
     }
+    }
     $('.modal').removeClass('modal-active');
 });
 
 $('.trigger-close').click(function(e) {
     $('.modal').removeClass('modal-active');
+    editSumm = null;
 });
 
 
@@ -47,6 +55,19 @@ $('.menu-option-delete').click(function(e) {
         if($('.main-pick').length==5) $('.main-add').removeClass('main-add-inactive');
         $(this).parents('.main-pick').remove();
     }
+});
+
+$('.menu-option-edit').click(function(e) {
+    $('#modal-summoners .modal-content-header').text("Edit Summoner");
+    let currSum = $(this).parents('.main-pick').children('.main-pick-summ');
+    editSumm = currSum.index('.main-pick-summ');
+    const input = $('.modal-content-input:first').clone(true,true);
+    $('.modal-content-input').remove();
+        input.val(currSum.text());
+        $( ".trigger-save" ).before(function() {
+            return input;
+          });
+    $('#modal-summoners').addClass('modal-active');
 });
 
 $('#topbar-options-trigger').click(function(e) {
