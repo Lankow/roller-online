@@ -1,4 +1,57 @@
+
+//Start of rolling Code
+class Champion{
+    constructor(name,thumb) {
+        this.name = name;
+        this.thumb = thumb;
+        //thumb has '.png' format in its string picture on the other hand needs "_0.jpg"
+        this.picture = thumb.substring(0, thumb.length-4)+"_0.jpg";
+    }
+}
+
+
+// App needs to download info about latest LoL version and then download latest champion info json
+var versionUrl = 'https://ddragon.leagueoflegends.com/realms/eune.json';
+var championsArray = new Array();
+var championsUrl;
+var version;
+var championsData;
+var keys;
+
+function loadChamps(){
+    if(championsData){
+        for(i=0;i<keys.length;i++){
+            var name = championsData[keys[i]].name;
+            var image = championsData[keys[i]].image.full;
+            var champion = new Champion(name,image);
+            championsArray.push(champion);
+        }
+    }
+}
+
+$.getJSON(versionUrl, function(data){
+        version = data.n.item;
+        championsUrl = 'http://ddragon.leagueoflegends.com/cdn/'+ version +'/data/en_US/champion.json';
+        $.getJSON(championsUrl, function(data){
+        championsData = data.data;
+        //json obtained from riot uses champion names as keys
+        keys = Object.keys(championsData);
+        loadChamps();
+    })
+})
+
+function rollChamp(){
+    var randChamp = championsArray[Math.floor(Math.random()*championsArray.length)];
+    $( ".main-pick-name" ).each( function( index, champion ) {
+        console.log($(champion).text() == randChamp.name);
+       if($(champion).text() == randChamp.name)  rollChamp();
+    });
+    return randChamp;
+    }
+
+//End of rolling Code
 var editSumm;
+var counter = 0;
 
 window.onload = function() {
     if(/iP(hone|ad)/.test(window.navigator.userAgent)) {
@@ -31,8 +84,8 @@ $('.trigger-summoners').click(function(e) {
 
 $('.trigger-save').click(function(e) {
     if(editSumm!=null){
-        $('.main-pick-summ').eq(editSumm).text($('.modal-content-input').val());
-        editSumm = null;
+            $('.main-pick-summ').eq(editSumm).text($('.modal-content-input').val());
+            editSumm = null;    
     }else{
     const newNames = $('.modal-content-input');
     let currSumms = $('.main-pick-summ');
@@ -56,6 +109,29 @@ $('.menu-option-delete').click(function(e) {
         $(this).parents('.main-pick').remove();
     }
 });
+
+$('.main-pick-roll').click(function(e) {
+    let champion = rollChamp();
+    let image = $(this).parents().siblings('.main-pick-pict').children('.pict-thumb');
+    let name = $(this).parents().siblings('.main-pick-name')
+    let loader = image.siblings('.pict-loader');
+
+    loader.addClass('modal-active');
+    var downloadingImage = new Image();
+    downloadingImage.onload = function(){
+        loader.removeClass('modal-active');
+    }; 
+    downloadingImage.src = "http://ddragon.leagueoflegends.com/cdn/" + version + "/img/champion/" + champion.thumb;
+    name.text(champion.name);
+    image.attr("src", downloadingImage.src);
+    counter++;
+});
+
+$('.topbar-roll').click(function(e) {
+    while($('.main-pick').length < 5) $('.main-add').click();
+    $('.main-pick-roll').click();
+});
+
 
 $('.menu-option-edit').click(function(e) {
     $('#modal-summoners .modal-content-header').text("Edit Summoner");
