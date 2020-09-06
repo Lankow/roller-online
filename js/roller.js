@@ -31,7 +31,7 @@ function loadChamps(){
 
 $.getJSON(versionUrl, function(data){
         version = data.n.item;
-        championsUrl = 'http://ddragon.leagueoflegends.com/cdn/'+ version +'/data/en_US/champion.json';
+        championsUrl = 'https://ddragon.leagueoflegends.com/cdn/'+ version +'/data/en_US/champion.json';
         $.getJSON(championsUrl, function(data){
         championsData = data.data;
         //json obtained from riot uses champion names as keys
@@ -121,7 +121,7 @@ $('.main-pick-roll').click(function(e) {
     downloadingImage.onload = function(){
         loader.removeClass('modal-active');
     }; 
-    downloadingImage.src = "http://ddragon.leagueoflegends.com/cdn/" + version + "/img/champion/" + champion.thumb;
+    downloadingImage.src = "https://ddragon.leagueoflegends.com/cdn/" + version + "/img/champion/" + champion.thumb;
     name.text(champion.name);
     image.attr("src", downloadingImage.src);
     counter++;
