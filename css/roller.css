@@ -56,6 +56,9 @@ button{
     flex-direction: column;
     border-left:2px solid #59481d;
 }
+.topbar-options-desktop{
+    display: none;
+}
 .topbar-options-header{
     color:#cdbe91;
     cursor: pointer;
@@ -220,6 +223,7 @@ button{
     align-items: center;
     font-size: 100px;
     color:#615f60;
+    transition: all 0.3s 0.1s ease-in-out;
 }
 
 
@@ -470,9 +474,22 @@ button{
 }
 
 
-@media (min-width: 1000px) {
-
+@media (min-width: 800px) {
     .main-wrapper{
         flex-direction: row;
+        justify-content: space-around;
+    }
+    .main-add, #topbar-options-trigger{
+        display: none;
+    }
+    .main-pick{
+        max-width:18.5%;
+    }
+    .topbar-options-desktop{
+        display: flex;
+        justify-content: space-between;
+    }
+    .topbar-option{
+    text-transform: uppercase;
     }
 }

@@ -1,3 +1,5 @@
+if($(window).width()>=800) $('.pict-thumb').attr('src',"img/Random.jpg");
+else $('.pict-thumb').attr('src',"img/RandomThumb.jpg");
 
 //Start of rolling Code
 class Champion{
@@ -43,8 +45,8 @@ $.getJSON(versionUrl, function(data){
 function rollChamp(){
     var randChamp = championsArray[Math.floor(Math.random()*championsArray.length)];
     $( ".main-pick-name" ).each( function( index, champion ) {
-        console.log($(champion).text() == randChamp.name);
-       if($(champion).text() == randChamp.name)  rollChamp();
+        let flag = 1;
+        if( randChamp && $(champion).text() == randChamp.name)  rollChamp();
     });
     return randChamp;
     }
@@ -115,19 +117,26 @@ $('.main-pick-roll').click(function(e) {
     let image = $(this).parents().siblings('.main-pick-pict').children('.pict-thumb');
     let name = $(this).parents().siblings('.main-pick-name')
     let loader = image.siblings('.pict-loader');
+    let url =""
+    if($(window).width()<800) url = "https://ddragon.leagueoflegends.com/cdn/" + version + "/img/champion/" + champion.thumb;
+    else url = "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + champion.picture;
+    image.attr("src", loadImage(url,loader));
+    name.text(champion.name);
+    counter++;
+});
 
+function loadImage(srcUrl, loader){
     loader.addClass('modal-active');
     var downloadingImage = new Image();
     downloadingImage.onload = function(){
         loader.removeClass('modal-active');
     }; 
-    downloadingImage.src = "https://ddragon.leagueoflegends.com/cdn/" + version + "/img/champion/" + champion.thumb;
-    name.text(champion.name);
-    image.attr("src", downloadingImage.src);
-    counter++;
-});
+    downloadingImage.src = srcUrl;
+    return srcUrl;
+}
 
-$('.topbar-roll').click(function(e) {
+
+$('.trigger-roll-team').click(function(e) {
     while($('.main-pick').length < 5) $('.main-add').click();
     $('.main-pick-roll').click();
 });
