@@ -8,6 +8,8 @@
     src: url("../font/Friz Quadrata Regular.ttf") format("truetype");
   }
 
+
+
 a{
     text-decoration: none;
     color:#c0b389;
@@ -475,6 +477,13 @@ button{
 
 
 @media (min-width: 800px) {
+    .topbar-wrapper{
+        padding:0;
+        width:100%;
+    }
+    .topbar-logo{
+        padding:10px 40px;
+    }
     .main-wrapper{
         flex-direction: row;
         justify-content: space-around;
@@ -488,8 +497,20 @@ button{
     .topbar-options-desktop{
         display: flex;
         justify-content: space-between;
+        margin-right: 40px;
     }
     .topbar-option{
     text-transform: uppercase;
+    font-weight: bold;
+    white-space: nowrap;
+    padding:30px 20px;
+    margin-bottom:-2px;
+    }
+    
+    .modal-content{
+        top:45vh;
+        left:50%;
+        width: 400px;
+        margin-left:-200px;
     }
 }
