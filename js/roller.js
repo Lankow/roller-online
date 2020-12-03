@@ -1,6 +1,33 @@
 if($(window).width()>=800) $('.pict-thumb').attr('src',"img/Random.jpg");
 else $('.pict-thumb').attr('src',"img/RandomThumb.jpg");
 
+//Start of cookies Code
+
+function setCookie(name, value, daysToLive) {
+    var cookie = name + "=" + encodeURIComponent(value);
+    if(typeof daysToLive === "number") {
+
+        cookie += "; max-age=" + (daysToLive*24*60*60);
+
+        document.cookie = cookie;
+    }
+}  
+  
+ function getCookie(name) {
+    var cookieArr = document.cookie.split(";");
+    for(var i = 0; i < cookieArr.length; i++) {
+        var cookiePair = cookieArr[i].split("=");
+        if(name == cookiePair[0].trim()) {
+            return decodeURIComponent(cookiePair[1]);
+        }
+    }
+    return null;
+} 
+
+//city = getCookie("city");
+//setCookie("city","Hamburg",3); 
+
+
 //Start of rolling Code
 class Champion{
     constructor(name,thumb) {
@@ -52,6 +79,51 @@ function rollChamp(){
     }
 
 //End of rolling Code
+function resizeMenus(){
+    if($(window).width()>=800){
+        let menus = $('.main-pick-menu');
+        let corner = $('.main-pick-options');
+        menus.css("width", corner.css("width"));
+    }
+}
+
+function addInactive(){
+        const pick = inactivePick.clone(true,true);
+        $('.main-pick-inactive').last().after(pick);
+}
+
+function addInactives(){
+    while($('.main-pick-inactive').length < (5 - $('.main-pick:not(.main-pick-inactive').length)) addInactive();
+}
+function removeInactives(){
+    $('.main-pick-inactive').remove();
+}
+
+function inactiveToActive(index){
+    const pick = pickTemplate.clone(true,true);
+    $('.main-pick-inactive').eq(index).after(pick);
+    $('.main-pick-inactive').eq(index).remove();
+    resizeMenus();
+}
+
+function activateAll(){
+    $( ".main-pick-inactive" ).each( function() {
+        inactiveToActive(0);
+    });
+}
+
+function toggleAdd(){
+    if($(window).width()>=800){
+        let champs = $('.main-pick');
+        let add = $('.main-add');
+        if(champs>4){
+            add.css("display", "none");
+        }else{
+            add.css("display", "flex");
+        }
+    }
+}
+
 var editSumm;
 var counter = 0;
 
@@ -59,7 +131,23 @@ window.onload = function() {
     if(/iP(hone|ad)/.test(window.navigator.userAgent)) {
         document.body.addEventListener('touchstart', function() {}, false);
     }
+    if($(window).width()>800){
+        addInactives();
+    }else{
+        removeInactives();
+    }
+    resizeMenus();
 }
+
+
+$( window ).resize(function() {
+    if($(window).width()>800){
+        // addInactives();
+    }else{
+        removeInactives();
+    }
+    resizeMenus();
+  });
 
 $('.trigger').click(function(e) {
     $(this).siblings('.main-pick-menu').toggleClass('menu-active');
@@ -112,7 +200,7 @@ $('.menu-option-delete').click(function(e) {
     }
 });
 
-$('.main-pick-roll').click(function(e) {
+$('.main-pick:not(.main-pick-inactive) .main-pick-roll').click(function(e) {
     let champion = rollChamp();
     let image = $(this).parents().siblings('.main-pick-pict').children('.pict-thumb');
     let name = $(this).parents().siblings('.main-pick-name')
@@ -123,6 +211,11 @@ $('.main-pick-roll').click(function(e) {
     image.attr("src", loadImage(url,loader));
     name.text(champion.name);
     counter++;
+    resizeMenus();
+});
+
+$('.main-pick-inactive .main-pick-roll').click(function(e) {
+inactiveToActive($('.main-pick-inactive .main-pick-roll').index(this));
 });
 
 function loadImage(srcUrl, loader){
@@ -135,10 +228,17 @@ function loadImage(srcUrl, loader){
     return srcUrl;
 }
 
-
 $('.trigger-roll-team').click(function(e) {
+    activateAll();
     while($('.main-pick').length < 5) $('.main-add').click();
     $('.main-pick-roll').click();
+});
+
+$('.trigger-roll-active').click(function(e) {
+    $('.main-pick:not(.main-pick-inactive) .main-pick-roll').each( function() {
+        $(this).click();
+    });
+    
 });
 
 
@@ -160,7 +260,8 @@ $('#topbar-options-trigger').click(function(e) {
     $('.topbar-options').toggleClass('topbar-options-active');
 });
 
-const pickTemplate = $(".main-pick").clone(true, true);
+const pickTemplate = $(".main-pick").eq(0).clone(true, true);
+const inactivePick = $(".main-pick-inactive").eq(0).clone(true, true);
 
 $('.main-add').click(function(e) {
     if($('.main-pick').length<5){

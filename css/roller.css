@@ -198,7 +198,9 @@ button{
     color: #f0e6d2;
     text-transform: uppercase;
 }
-
+.main-pick-inactive{
+    display: none;
+}
 .main-pick-pict{
     width: 90%;
     height:auto;
@@ -232,6 +234,7 @@ button{
 .main-pick-name, .main-pick-summ{
     font-size:30px;
     padding-top:3px;
+    white-space: nowrap;
 }
 .main-pick-summ{
     padding-bottom: 3px;
@@ -325,6 +328,7 @@ button{
     background: #010a13;
     text-transform: capitalize;
     z-index: 3;
+    white-space: nowrap;
 }
 .menu-active{
     opacity: 1;
@@ -477,6 +481,14 @@ button{
 
 
 @media (min-width: 800px) {
+    .topbar-roll-name,
+    .roll-name,
+    .pick-menu-option,
+    .trigger,
+    .modal-content-button,
+    .modal-content-close{
+        cursor: pointer;
+    }
     .topbar-wrapper{
         padding:0;
         width:100%;
@@ -488,11 +500,20 @@ button{
         flex-direction: row;
         justify-content: space-around;
     }
-    .main-add, #topbar-options-trigger{
+    #topbar-options-trigger{
         display: none;
     }
     .main-pick{
         max-width:18.5%;
+    }
+    .main-pick-name, .main-pick-summ{
+        font-size:2vw;
+    }
+    .main-pick-menu{
+        width:initial;
+        right:initial;
+        margin-top:-127px;
+        margin-right:-14px;
     }
     .topbar-options-desktop{
         display: flex;
@@ -504,13 +525,89 @@ button{
     font-weight: bold;
     white-space: nowrap;
     padding:30px 20px;
-    margin-bottom:-2px;
+    border-bottom: none;
     }
-    
+    .topbar-option:hover{
+        box-shadow: inset 0px -25px 25px -29px rgba(239,229,208,1);
+    }
+   
+    .topbar-option div{
+        cursor:pointer;
+    }
+    .topbar-roll-name{
+        white-space: nowrap;
+    }
+    .triangle-right{
+        padding:0;
+    }
+    .triangle-shape{
+        left:0px;
+      }
     .modal-content{
         top:45vh;
         left:50%;
         width: 400px;
         margin-left:-200px;
+    }
+    .main-add{
+        display:none;
+    }
+    .topbar-roll:hover .topbar-roll-name,
+    .main-pick-roll:hover .roll-name,
+    .trigger:hover{
+        color:#5194b1;
+        text-shadow:#02567b  1px 0 5px; 
+    }
+
+    .main-add:hover,
+    #topbar-options-trigger:hover,
+    .topbar-option:hover,
+    .topbar-options-header:hover,
+    .trigger-close:hover,
+    .trigger-save:hover,
+    .pick-menu-option:hover
+    {
+        color:#fff;
+        text-shadow:#02567b  1px 0 5px; 
+    }
+
+    .main-add:active,
+    #topbar-options-trigger:active,
+    .topbar-option:active,
+    .topbar-options-header:active,
+    .trigger-close:active,
+    .trigger-save:active,.topbar-roll:active .topbar-roll-name,
+    .main-pick-roll:active .roll-name,
+    .trigger:active{
+        color:#fff;
+        text-shadow:#fff  1px 0 5px; 
+    }
+
+    .main-add:active,
+    #topbar-options-trigger:active,
+    .topbar-option:active,
+    .topbar-options-header:active,
+    .trigger-close:active,
+    .trigger-save:active
+    {
+        color:#c79b3e;
+        text-shadow:none;
+    }
+    .footer{
+        padding: 6px 4%;
+        font-size:12px;
+        position: absolute;
+        bottom:0;
+    }
+    
+    .main-pick-inactive{
+        display: flex;
+    }
+
+    .main-pick-inactive .roll-name{
+        border-image-source: none;
+        border:4px solid #51514f;
+        color:#3c3c41;
+        background: #1e2328;
     }
 }
