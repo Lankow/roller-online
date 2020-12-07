@@ -2,31 +2,44 @@ if($(window).width()>=800) $('.pict-thumb').attr('src',"img/Random.jpg");
 else $('.pict-thumb').attr('src',"img/RandomThumb.jpg");
 
 //Start of cookies Code
+let summsNames = ['Summoner','Summoner','Summoner','Summoner','Summoner'];
 
-function setCookie(name, value, daysToLive) {
-    var cookie = name + "=" + encodeURIComponent(value);
-    if(typeof daysToLive === "number") {
+function loadNames(){
 
-        cookie += "; max-age=" + (daysToLive*24*60*60);
+}
+function updateNames(){
+    $('.main-pick-summ').each( function() {
+        $(this).text(summsNames[$('.main-pick-summ').index(this)]);
+    });
+}
 
-        document.cookie = cookie;
+function createCookie(name, value, days) {
+    var expires;
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toGMTString();
     }
-}  
-  
- function getCookie(name) {
-    var cookieArr = document.cookie.split(";");
-    for(var i = 0; i < cookieArr.length; i++) {
-        var cookiePair = cookieArr[i].split("=");
-        if(name == cookiePair[0].trim()) {
-            return decodeURIComponent(cookiePair[1]);
+    else {
+        expires = "";
+    }
+    document.cookie = name + "=" + value + expires + "; path=/";
+}
+
+function getCookie(c_name) {
+    if (document.cookie.length > 0) {
+        c_start = document.cookie.indexOf(c_name + "=");
+        if (c_start != -1) {
+            c_start = c_start + c_name.length + 1;
+            c_end = document.cookie.indexOf(";", c_start);
+            if (c_end == -1) {
+                c_end = document.cookie.length;
+            }
+            return unescape(document.cookie.substring(c_start, c_end));
         }
     }
-    return null;
-} 
-
-//city = getCookie("city");
-//setCookie("city","Hamburg",3); 
-
+    return "";
+}
 
 //Start of rolling Code
 class Champion{
@@ -69,6 +82,7 @@ $.getJSON(versionUrl, function(data){
     })
 })
 
+
 function rollChamp(){
     var randChamp = championsArray[Math.floor(Math.random()*championsArray.length)];
     $( ".main-pick-name" ).each( function( index, champion ) {
@@ -106,6 +120,13 @@ function inactiveToActive(index){
     resizeMenus();
 }
 
+function activeToInactive(index){
+    console.log(index);
+    const pick = inactivePick.clone(true,true);
+    $('.main-pick').eq(index).after(pick);
+    $('.main-pick').eq(index).remove();
+}
+
 function activateAll(){
     $( ".main-pick-inactive" ).each( function() {
         inactiveToActive(0);
@@ -137,6 +158,7 @@ window.onload = function() {
         removeInactives();
     }
     resizeMenus();
+    updateNames();
 }
 
 
@@ -194,9 +216,11 @@ $('.trigger-close').click(function(e) {
 
 
 $('.menu-option-delete').click(function(e) {
-    if($('.main-pick').length>1){
+    if($('.main-pick').length>1 && $(window).width()<800){
         if($('.main-pick').length==5) $('.main-add').removeClass('main-add-inactive');
         $(this).parents('.main-pick').remove();
+    }else{
+        activeToInactive($(this).parents('.main-pick').index());
     }
 });
 

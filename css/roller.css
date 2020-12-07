@@ -39,6 +39,7 @@ button{
     color: #c0b389;
     border-bottom: solid 1px #3d4143;
     z-index: 900;
+    border-top:solid 2px #785a28;
 }
 .topbar-wrapper-active{
     transform: translateX(-80vw);
@@ -602,6 +603,9 @@ button{
     
     .main-pick-inactive{
         display: flex;
+    }
+    .main-pick-inactive img{
+        opacity:0.3;
     }
 
     .main-pick-inactive .roll-name{
