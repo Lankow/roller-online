@@ -2,10 +2,27 @@ if($(window).width()>=800) $('.pict-thumb').attr('src',"img/Random.jpg");
 else $('.pict-thumb').attr('src',"img/RandomThumb.jpg");
 
 //Start of cookies Code
-let summsNames = ['Summoner','Summoner','Summoner','Summoner','Summoner'];
+let summsNames = ['Lankov','Summoner','Summoner','Summoner','Summoner',];
 
-function loadNames(){
-
+function loadSumms(){
+    for(i=0;i<summsNames.length;i++){
+        if (summsNames[i].toUpperCase() != ("Summoner").toUpperCase()){
+            if($(window).width()>=800){
+                console.log(i);
+                if (i>0) inactiveToActive(0);
+                $('.main-pick:not(.main-pick-inactive) .main-pick-summ').last().text(summsNames[i]);
+            }else{
+                if (i>0) $('.main-add').click();
+                $('.main-pick-summ').last().text(summsNames[i]);   
+            }
+        } 
+    }
+    saveNames();
+}
+function saveNames(){
+    $('.main-pick-summ').each( function() {
+        summsNames[$('.main-pick-summ').index(this)] = $(this).text();
+    });
 }
 function updateNames(){
     $('.main-pick-summ').each( function() {
@@ -13,17 +30,12 @@ function updateNames(){
     });
 }
 
-function createCookie(name, value, days) {
+function createSummsCookie() {
     var expires;
-    if (days) {
         var date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        date.setTime(date.getTime() + (7 * 24 * 60 * 60 * 1000));
         expires = "; expires=" + date.toGMTString();
-    }
-    else {
-        expires = "";
-    }
-    document.cookie = name + "=" + value + expires + "; path=/";
+        document.cookie =  "summs = " + summsNames[i] + expires + "; path=/";
 }
 
 function getCookie(c_name) {
@@ -114,6 +126,7 @@ function removeInactives(){
 }
 
 function inactiveToActive(index){
+    console.log(index);
     const pick = pickTemplate.clone(true,true);
     $('.main-pick-inactive').eq(index).after(pick);
     $('.main-pick-inactive').eq(index).remove();
@@ -121,7 +134,6 @@ function inactiveToActive(index){
 }
 
 function activeToInactive(index){
-    console.log(index);
     const pick = inactivePick.clone(true,true);
     $('.main-pick').eq(index).after(pick);
     $('.main-pick').eq(index).remove();
@@ -157,8 +169,8 @@ window.onload = function() {
     }else{
         removeInactives();
     }
+    loadSumms();
     resizeMenus();
-    updateNames();
 }
 
 
@@ -192,6 +204,7 @@ $('.trigger-summoners').click(function(e) {
           });
     }
     $('#modal-summoners').addClass('modal-active');
+    createCookie("summs",summsNames.toString(),3);
 });
 
 $('.trigger-save').click(function(e) {
@@ -207,6 +220,7 @@ $('.trigger-save').click(function(e) {
     }
     }
     $('.modal').removeClass('modal-active');
+    saveNames();
 });
 
 $('.trigger-close').click(function(e) {

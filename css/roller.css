@@ -614,4 +614,18 @@ button{
         color:#3c3c41;
         background: #1e2328;
     }
+
+    .pick-menu-option{
+        font-size:medium;
+        line-height:18px;
+    }
+    
+    .roll-name{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size:2vw;
+        height: 40px;
+        padding:0;
+    }
 }
