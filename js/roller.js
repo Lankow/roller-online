@@ -41,12 +41,12 @@ function createSummsCookie() {
 
 function getSummsCookie() {
     summsString = getCookie("summs");
-    if(summsNames.length>0){
-        console.log(summsString);
+    if(summsNames != ""){
         summsNames=summsString.split("$");
-        console.log(summsNames.toString());
-    }else{
-        summsNames = ['Summoner','Summoner','Summoner','Summoner','Summoner',];
+        for(i=0;i<5;i++){
+            console.log(summsNames[i]);
+            if(summsNames[i]=="" || !summsNames[i]==undefined) summsNames[i]="Summoner";
+        }
     }
     } 
 
@@ -218,10 +218,31 @@ window.onload = function() {
 }
 
 function swapDefaultImages(width){
-    if(width>800 && $('.pict-thumb').attr('src') == "img/RandomThumb.jpg"){
+    if(width>=800 && $('.pict-thumb').attr('src') == "img/RandomThumb.jpg"){
         $('.pict-thumb').attr('src',"img/Random.jpg");
-    }else if(width<=800 && $('.pict-thumb').attr('src') == "img/Random.jpg"){
+    }else if(width<800 && $('.pict-thumb').attr('src') == "img/Random.jpg"){
         $('.pict-thumb').attr('src',"img/RandomThumb.jpg");
+    }else if($('.pict-thumb').attr('src') != "img/RandomThumb.jpg" && $('.pict-thumb').attr('src') != "img/Random.jpg"){
+        let url;
+        if(width>=800){
+            $('.pict-thumb').each( function() {
+                let champion = $(this).attr('src');
+                if(champion.includes(".png")){
+                    champion = champion.substring(champion.lastIndexOf("/")+1,champion.lastIndexOf("."))+"_0.jpg";
+                    url = "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + champion;
+                    $(this).attr("src", loadImage(url,$(this).siblings('.pict-loader')));
+                }
+            });
+        }else{
+            $('.pict-thumb').each( function() {
+            let champion = $(this).attr('src');
+            if(champion.includes(".jpg")){
+                champion = champion.substring(champion.lastIndexOf("/")+1,champion.lastIndexOf("_")) +".png";
+                url = "https://ddragon.leagueoflegends.com/cdn/" + version + "/img/champion/" + champion;
+                $(this).attr("src", loadImage(url,$(this).siblings('.pict-loader')));
+            }
+            });
+        }
     }
 }
 
