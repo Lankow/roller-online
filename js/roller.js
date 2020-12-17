@@ -7,6 +7,7 @@ let summsNames;
 function loadSumms(){
     for(i=0;i<summsNames.length;i++){
         if (summsNames[i].toUpperCase() != ("Summoner").toUpperCase()){
+            
             if($(window).width()>=800){
                 if (i>0) inactiveToActive(0);
                 $('.main-pick:not(.main-pick-inactive) .main-pick-summ').last().text(summsNames[i]);
@@ -40,7 +41,7 @@ function createSummsCookie() {
 
 function getSummsCookie() {
     summsString = getCookie("summs");
-    if(summsNames != ""){
+    if(summsNames.length>0){
         console.log(summsString);
         summsNames=summsString.split("$");
         console.log(summsNames.toString());
