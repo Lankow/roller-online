@@ -616,7 +616,7 @@ button{
     }
 
     .pick-menu-option{
-        font-size:medium;
+        font-size:0.8vw;
         line-height:18px;
     }
     
@@ -627,5 +627,9 @@ button{
         font-size:2vw;
         height: 40px;
         padding:0;
+    }
+    .topbar-option{
+        line-height:18px;
+        font-size:1vw;
     }
 }

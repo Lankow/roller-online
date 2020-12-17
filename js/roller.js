@@ -2,13 +2,12 @@ if($(window).width()>=800) $('.pict-thumb').attr('src',"img/Random.jpg");
 else $('.pict-thumb').attr('src',"img/RandomThumb.jpg");
 
 //Start of cookies Code
-let summsNames = ['Lankov','Summoner','Summoner','Summoner','Summoner',];
+let summsNames;
 
 function loadSumms(){
     for(i=0;i<summsNames.length;i++){
         if (summsNames[i].toUpperCase() != ("Summoner").toUpperCase()){
             if($(window).width()>=800){
-                console.log(i);
                 if (i>0) inactiveToActive(0);
                 $('.main-pick:not(.main-pick-inactive) .main-pick-summ').last().text(summsNames[i]);
             }else{
@@ -31,27 +30,60 @@ function updateNames(){
 }
 
 function createSummsCookie() {
-    var expires;
-        var date = new Date();
-        date.setTime(date.getTime() + (7 * 24 * 60 * 60 * 1000));
-        expires = "; expires=" + date.toGMTString();
-        document.cookie =  "summs = " + summsNames[i] + expires + "; path=/";
+        let summsString="";
+        for(i=0;i<summsNames.length;i++){
+            summsString+=summsNames[i];
+            if(i<summsNames.length-1) summsString+="$";
+        }
+        setCookie("summs",summsString,7);
 }
 
-function getCookie(c_name) {
-    if (document.cookie.length > 0) {
-        c_start = document.cookie.indexOf(c_name + "=");
-        if (c_start != -1) {
-            c_start = c_start + c_name.length + 1;
-            c_end = document.cookie.indexOf(";", c_start);
-            if (c_end == -1) {
-                c_end = document.cookie.length;
-            }
-            return unescape(document.cookie.substring(c_start, c_end));
+function getSummsCookie() {
+    summsString = getCookie("summs");
+    if(summsNames != ""){
+        console.log(summsString);
+        summsNames=summsString.split("$");
+        console.log(summsNames.toString());
+    }else{
+        summsNames = ['Summoner','Summoner','Summoner','Summoner','Summoner',];
+    }
+    } 
+
+function removeOnMobile(index){
+    let counter=0;
+    for(i=0;i<summsNames.length;i++){
+        if (summsNames[i].toUpperCase() != ("Summoner").toUpperCase()){
+            if(counter == index){
+                summsNames[i]="Summoner";
+                return;
+            }else counter++;
         }
     }
-    return "";
 }
+
+function setCookie(cname, cvalue, exdays) {
+    let d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    let expires = "expires="+d.toUTCString();
+    summCookie = cname + "=" + cvalue + ";" + expires + ";path=/"
+    document.cookie = summCookie;
+  }
+  
+  function getCookie(cname) {
+    let name = cname + "=";
+    let ca = document.cookie.split(';');
+    for(let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+  
 
 //Start of rolling Code
 class Champion{
@@ -65,19 +97,19 @@ class Champion{
 
 
 // App needs to download info about latest LoL version and then download latest champion info json
-var versionUrl = 'https://ddragon.leagueoflegends.com/realms/eune.json';
-var championsArray = new Array();
-var championsUrl;
-var version;
-var championsData;
-var keys;
+let versionUrl = 'https://ddragon.leagueoflegends.com/realms/eune.json';
+let championsArray = new Array();
+let championsUrl;
+let version;
+let championsData;
+let keys;
 
 function loadChamps(){
     if(championsData){
         for(i=0;i<keys.length;i++){
-            var name = championsData[keys[i]].name;
-            var image = championsData[keys[i]].image.full;
-            var champion = new Champion(name,image);
+            let name = championsData[keys[i]].name;
+            let image = championsData[keys[i]].image.full;
+            let champion = new Champion(name,image);
             championsArray.push(champion);
         }
     }
@@ -96,7 +128,7 @@ $.getJSON(versionUrl, function(data){
 
 
 function rollChamp(){
-    var randChamp = championsArray[Math.floor(Math.random()*championsArray.length)];
+    let randChamp = championsArray[Math.floor(Math.random()*championsArray.length)];
     $( ".main-pick-name" ).each( function( index, champion ) {
         let flag = 1;
         if( randChamp && $(champion).text() == randChamp.name)  rollChamp();
@@ -115,7 +147,11 @@ function resizeMenus(){
 
 function addInactive(){
         const pick = inactivePick.clone(true,true);
-        $('.main-pick-inactive').last().after(pick);
+        if($('.main-pick-inactive').length == 0){
+            $('.main-pick').last().after(pick);
+        }else{
+            $('.main-pick-inactive').last().after(pick);
+        }
 }
 
 function addInactives(){
@@ -126,10 +162,16 @@ function removeInactives(){
 }
 
 function inactiveToActive(index){
-    console.log(index);
     const pick = pickTemplate.clone(true,true);
     $('.main-pick-inactive').eq(index).after(pick);
     $('.main-pick-inactive').eq(index).remove();
+    resizeMenus();
+}
+
+function editToActive(pickToReplace){
+    const pick = pickTemplate.clone(true,true);
+    pickToReplace.after(pick);
+    pickToReplace.remove();
     resizeMenus();
 }
 
@@ -157,8 +199,8 @@ function toggleAdd(){
     }
 }
 
-var editSumm;
-var counter = 0;
+let editSumm;
+let counter = 0;
 
 window.onload = function() {
     if(/iP(hone|ad)/.test(window.navigator.userAgent)) {
@@ -169,17 +211,26 @@ window.onload = function() {
     }else{
         removeInactives();
     }
+    getSummsCookie();
     loadSumms();
     resizeMenus();
 }
 
+function swapDefaultImages(width){
+    if(width>800 && $('.pict-thumb').attr('src') == "img/RandomThumb.jpg"){
+        $('.pict-thumb').attr('src',"img/Random.jpg");
+    }else if(width<=800 && $('.pict-thumb').attr('src') == "img/Random.jpg"){
+        $('.pict-thumb').attr('src',"img/RandomThumb.jpg");
+    }
+}
 
 $( window ).resize(function() {
     if($(window).width()>800){
-        // addInactives();
+        if($('.main-pick-inactive').length == 0) addInactives();
     }else{
         removeInactives();
     }
+    swapDefaultImages($(window).width());
     resizeMenus();
   });
 
@@ -204,7 +255,7 @@ $('.trigger-summoners').click(function(e) {
           });
     }
     $('#modal-summoners').addClass('modal-active');
-    createCookie("summs",summsNames.toString(),3);
+    
 });
 
 $('.trigger-save').click(function(e) {
@@ -215,12 +266,17 @@ $('.trigger-save').click(function(e) {
     const newNames = $('.modal-content-input');
     let currSumms = $('.main-pick-summ');
     for(i=0;i<newNames.length;i++){
+        if(currSumms.eq(i).parents('.main-pick-inactive').length == 1 && newNames.eq(i).val().toUpperCase() != "Summoner".toUpperCase()){
+            console.log(currSumms.eq(i).parents('.main-pick-inactive').index());
+            editToActive(currSumms.eq(i).parent('.main-pick-inactive'));
+        } 
         let newName = newNames.eq(i).val();
-        if(newName) currSumms.eq(i).text(newName);
+        if(newName) $('.main-pick-summ').eq(i).text(newName);
     }
     }
     $('.modal').removeClass('modal-active');
     saveNames();
+    createSummsCookie();
 });
 
 $('.trigger-close').click(function(e) {
@@ -232,10 +288,14 @@ $('.trigger-close').click(function(e) {
 $('.menu-option-delete').click(function(e) {
     if($('.main-pick').length>1 && $(window).width()<800){
         if($('.main-pick').length==5) $('.main-add').removeClass('main-add-inactive');
+        removeOnMobile($(this).parents('.main-pick').index());
         $(this).parents('.main-pick').remove();
     }else{
         activeToInactive($(this).parents('.main-pick').index());
+        summsNames[$(this).parents('.main-pick').index()]="Summoner";
     }
+    saveNames();
+    createSummsCookie();
 });
 
 $('.main-pick:not(.main-pick-inactive) .main-pick-roll').click(function(e) {
@@ -258,7 +318,7 @@ inactiveToActive($('.main-pick-inactive .main-pick-roll').index(this));
 
 function loadImage(srcUrl, loader){
     loader.addClass('modal-active');
-    var downloadingImage = new Image();
+    let downloadingImage = new Image();
     downloadingImage.onload = function(){
         loader.removeClass('modal-active');
     }; 
