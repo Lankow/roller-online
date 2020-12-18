@@ -218,32 +218,32 @@ window.onload = function() {
 }
 
 function swapDefaultImages(width){
-    if(width>=800 && $('.pict-thumb').attr('src') == "img/RandomThumb.jpg"){
-        $('.pict-thumb').attr('src',"img/Random.jpg");
-    }else if(width<800 && $('.pict-thumb').attr('src') == "img/Random.jpg"){
-        $('.pict-thumb').attr('src',"img/RandomThumb.jpg");
-    }else if($('.pict-thumb').attr('src') != "img/RandomThumb.jpg" && $('.pict-thumb').attr('src') != "img/Random.jpg"){
+    $('.pict-thumb').each( function() {
+    if(width>=800 && $(this).attr('src') == "img/RandomThumb.jpg"){
+        $(this).attr('src',"img/Random.jpg");
+    }else if(width<800 && $(this).attr('src') == "img/Random.jpg"){
+        $(this).attr('src',"img/RandomThumb.jpg");
+    }else if($(this).attr('src') != "img/RandomThumb.jpg" && $(this).attr('src') != "img/Random.jpg"){
         let url;
+        let champion;
         if(width>=800){
-            $('.pict-thumb').each( function() {
-                let champion = $(this).attr('src');
+                champion = $(this).attr('src');
                 if(champion.includes(".png")){
                     champion = champion.substring(champion.lastIndexOf("/")+1,champion.lastIndexOf("."))+"_0.jpg";
                     url = "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + champion;
                     $(this).attr("src", loadImage(url,$(this).siblings('.pict-loader')));
                 }
-            });
         }else{
-            $('.pict-thumb').each( function() {
-            let champion = $(this).attr('src');
+            champion = $(this).attr('src');
             if(champion.includes(".jpg")){
                 champion = champion.substring(champion.lastIndexOf("/")+1,champion.lastIndexOf("_")) +".png";
                 url = "https://ddragon.leagueoflegends.com/cdn/" + version + "/img/champion/" + champion;
                 $(this).attr("src", loadImage(url,$(this).siblings('.pict-loader')));
             }
-            });
+            
         }
     }
+});
 }
 
 $( window ).resize(function() {
