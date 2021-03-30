@@ -595,10 +595,7 @@ button{
         text-shadow:none;
     }
     .footer{
-        padding: 6px 4%;
-        font-size:12px;
-        position: absolute;
-        bottom:0;
+        display: none;
     }
     
     .main-pick-inactive{
