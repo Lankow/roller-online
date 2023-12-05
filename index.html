@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>League Roller</title>
+    <link rel="stylesheet" href="css/roller.css">
+</head>
+<body>
+    <div class="topbar-wrapper">
+        <div class="topbar-logo">
+            <a class="topbar-logo-link" href="index.html">
+                <img src="img/lol-icon.png">
+            </a>
+            <div class="topbar-roll">
+                <div class="circle-half-right"></div>
+                <div class="topbar-roll-name trigger-roll-team">Roll Team</div>
+                <div class="triangle-right">
+                    <div class="triangle-shape"></div>
+                <div class="triangle-border"></div>
+                </div>
+            </div>
+        </div>
+        <button id="topbar-options-trigger">
+            <i class="icon-menu"></i>
+        </button>
+        <div class="topbar-options-desktop">
+            <div class="topbar-option trigger-roll-active">
+                <div>Roll active</div>
+            </div>
+            <div class="topbar-option trigger-summoners">
+                
+                <div>Edit Summoners</div>
+            </div>
+            <a href="https://github.com/Lankow" target="_blank" class="topbar-option">
+                
+                <div>GitHub</div>
+            </a>
+            <div class="topbar-option trigger-about">
+                
+                <div>About</div>
+            </div>
+            <a href="index.html" class="topbar-option">
+                
+                <div>Home</div>
+            </a>
+        </div>
+    </div>
+    <div class="topbar-options">
+        <div class="topbar-options-header">Roller Online</div>
+        <div class="topbar-option trigger-roll-active">
+            <i class="icon-arrows-cw"></i>
+            <div>Roll Active</div>
+        </div>
+        <div class="topbar-option trigger-summoners">
+            <i class="icon-pencil"></i>
+            <div>Edit Summoners</div>
+        </div>
+        <a href="https://github.com/Lankow" target="_blank" class="topbar-option">
+            <i class="icon-github-circled"></i>
+            <div>GitHub</div>
+        </a>
+        <div class="topbar-option trigger-about">
+            <i class="icon-help"></i>
+            <div>About</div>
+        </div>
+        <a href="index.html" class="topbar-option">
+            <i class="icon-home"></i>
+            <div>Home</div>
+        </a>
+    </div>
+    <div class="main-wrapper">
+        <div class="main-pick">
+            <div class="main-pick-pict">
+                <img class="pict-thumb" alt="">
+                <div class="pict-loader">
+                    <i class="icon-spin3 animate-spin"></i>
+                </div>
+            </div>
+            <div class="main-pick-summ">summoner</div>
+            <div class="main-pick-name">champion</div>
+            <div class="main-pick-options"> 
+                <div class="main-pick-roll">
+                    <div class="roll-name">Reroll</div>
+                    <div class="triangle-right">
+                        <div class="triangle-shape"></div>
+                    <div class="triangle-border"></div>
+                    </div>
+                </div>
+                <div class="main-pick-menu-trigger">
+                    <i class="icon-dot-3 trigger"></i>
+                    <div class="main-pick-menu">
+                        <div class="pick-menu-option menu-option-edit">
+                            <i class="icon-pencil"></i>
+                            <div>Edit Summoner</div>
+                        </div>
+                        <div class="pick-menu-option  menu-option-delete">
+                            <i class="icon-cancel"></i>
+                            <div>Delete Summoner</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-pick main-pick-inactive">
+            <div class="main-pick-pict">
+                <img class="pict-thumb" alt="">
+            </div>
+            <div class="main-pick-summ">summoner</div>
+            <div class="main-pick-name">champion</div>
+            <div class="main-pick-options"> 
+                <div class="main-pick-roll">
+                    <div class="roll-name">Summon</div>
+            </div>
+        </div>
+    </div>
+    <button class="main-add">
+        <i class="icon-plus-circle"></i>
+        <div>Add Summoner</div>
+    </button>
+    <div class="footer">
+        <div>&copy; Copyright 2020 Lankow</div>
+    </div>
+    <div class="modal" id="modal-about">
+        <div class="modal-content">
+            <div class="modal-content-close trigger-close">
+                <i class="icon-cancel"></i>
+            </div>
+            <div class="modal-content-header">About</div>
+            <div class="modal-content-text">  
+            Application rolls random team for League of Legends players. 
+            Players can edit their summoners names and roll pick for themselves. 
+            Pick is always unique.
+            </div>
+            <div class="modal-content-button trigger-close">close</div>
+        </div>
+    </div>
+    <div class="modal" id="modal-summoners">
+        <div class="modal-content">
+            <div class="modal-content-close trigger-close">
+                <i class="icon-cancel"></i>
+            </div>
+            <div class="modal-content-header">Edit Summoners</div>
+            <input type="text" class="modal-content-input" maxlength ="10" placeholder="Enter Summoner Name">
+            <div class="modal-content-button trigger-save">save</div>
+        </div>
+    </div>
+    <!--JQuery Library-->
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/roller.js"></script>
+</body>
+</html>
