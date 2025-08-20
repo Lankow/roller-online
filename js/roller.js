@@ -44,7 +44,6 @@ function getSummsCookie() {
     if(summsNames != ""){
         summsNames=summsString.split("$");
         for(i=0;i<5;i++){
-            console.log(summsNames[i]);
             if(summsNames[i]=="" || !summsNames[i]==undefined) summsNames[i]="Summoner";
         }
     }
@@ -289,7 +288,6 @@ $('.trigger-save').click(function(e) {
     let currSumms = $('.main-pick-summ');
     for(i=0;i<newNames.length;i++){
         if(currSumms.eq(i).parents('.main-pick-inactive').length == 1 && newNames.eq(i).val().toUpperCase() != "Summoner".toUpperCase()){
-            console.log(currSumms.eq(i).parents('.main-pick-inactive').index());
             editToActive(currSumms.eq(i).parent('.main-pick-inactive'));
         } 
         let newName = newNames.eq(i).val();
